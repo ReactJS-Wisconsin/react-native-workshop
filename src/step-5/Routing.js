@@ -109,7 +109,7 @@ For our app, we want to use the `StackNavigator` because we want a conceptual 's
 
 <ul className="setup__steps">
   <li>
-    <p>Let{`'`}s start with one screen.  Inside App.js create a new `HomeScreen component`</p>
+    <p>Let{`'`}s start with one screen.  Inside App.js create a new `HomeScreen component`.  You can keep your existing components if you wish, its up to you!</p>
     <Highlight lang='javascript' value={firstScreen} />
   </li>
   <li>
@@ -136,7 +136,7 @@ For our app, we want to use the `StackNavigator` because we want a conceptual 's
   <p>Finally, add a button to navigate to our new screen.  Make sure you import `Button` from `react-native`.  Our button in `HomeScreen` component links to `ArticlesScreen` using the `routeName` `Articles`.</p>
   <Highlight lang='javascript' value={fifthScreen} />
 </li>
-<li>Sweet, we are done.  Try navigating on your phone!</li>
+<li>Sweet, we are done.  Try navigating on your phone!  If you want, create a couple more components, compose them inside existing ones, let things break, try it out, fix it, and have fun!</li>
 </ul>
 
 <h2>Reference Links</h2>
