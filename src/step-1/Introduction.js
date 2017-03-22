@@ -14,14 +14,12 @@ class Introduction extends Component {
           <li><b>Mobile Device</b> - IOS or Android.</li>
         </ul>
 
-        <h2>Things you need</h2>
-        <ul>
-          <li><a href="https://www.google.com/chrome/browser/desktop/" target="_blank">Chrome Browser</a> 46 or above</li>
-          <li>Text Editor</li>
-        </ul>
+        <h2>Why Create React Native App?</h2>
+        <p><a href="https://github.com/react-community/create-react-native-app#faqs">See Create React Native App FAQS</a></p>
 
         <Note type="facts">
-          <p><span>Facts: </span> AirBnB uses React Native <a href="https://developers.google.com/web/showcase/2016/pdfs/flipkart.pdf" target="_blank">asdf</a></p>
+          <p><span>Note: </span> Create React Native App should reduce the setup time it takes to try building a mobile app to the absolute minimum, ideally on par with React web development (especially as seen with Create React App).
+</p>
         </Note>
       </div>
     );
