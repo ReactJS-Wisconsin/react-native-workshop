@@ -31,7 +31,7 @@ class Setup extends Component {
 
 
           <li>
-          <p>Install the Expo app on your iOS or Android phone, and use the QR code in the terminal to open your app. Find the QR scanner on the Projects tab of the app and scan the QR code.
+          <p>Install the <a href="https://expo.io/">Expo app on your iOS or Android phone</a> (from app store), and use the QR code in the terminal to open your app. Find the QR scanner on the Projects tab of the app and scan the QR code.
 </p>
 <p>Thats it. Setup is done.  If things are working nicely you should now see your newly created app appear on your phone.</p>
           </li>
@@ -47,7 +47,8 @@ class Setup extends Component {
         <h2>Reference Links</h2>
         <ul>
           <li><a href="https://github.com/react-community/create-react-native-app">create-react-native-app</a></li>
-          <li><a href="https://expo.io/">Expo</a></li>
+          <li><a href="https://expo.io/">Expo Client</a></li>
+          <li><a href="https://facebook.github.io/react-native/docs/getting-started.html">(Plan B) install CLI & SDKs</a></li>
         </ul>
       </div>
     );
