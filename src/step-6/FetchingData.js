@@ -128,6 +128,15 @@ class FetchingData extends Component {
   </li>
   </ul>
 
+
+<h2>Useful links</h2>
+<ul>
+<li><a href="https://facebook.github.io/react-native/docs/network.html">Fetch / Networking</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API on MDN</a></li>
+
+
+
+</ul>
       </div>
     );
   }
