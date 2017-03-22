@@ -34,6 +34,10 @@ class UpAndRunning extends Component {
         <h1>3. Up & Running</h1>
         <p>An app shell architecture is minimal level <span className="highlight bold no--bg">HTML, CSS, Javascript</span> required to power the application user interface.</p>
 
+
+        <p>Calls to console.log are forwarded to your terminal. You can make use of any standard React Native APIs as well as the Expo SDK.</p>
+
+
         <h2>Components for App Shell</h2>
         <ul className="">
           <li>Header with icon and title</li>

@@ -4,7 +4,13 @@ import Note from '../Note';
 
 class Styles extends Component {
   render() {
-    const surgeInstall = `$ npm install --global surge`;
+    const surgeInstall = `
+    const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: 20,
+  },
+});`;
     const finalDir = `$ cd final`;
     const surgeDeploy = `$ surge`;
     const surgeDeployHTTPS = `$ surge --domain https://my-project.surge.sh`;

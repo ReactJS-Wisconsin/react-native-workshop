@@ -4,69 +4,146 @@ import Note from '../Note';
 
 class Routing extends Component {
   render() {
-    const offlineEvent = `/* app.js */
+    const installRN = `$ npm install --save react-navigation`;
 
-//After DOM load
-document.addEventListener('DOMContentLoaded', function(event) {
-  var headerElement = document.querySelector('.header');
-  var menuElement = document.querySelector('.menu__header');
-
-  //On page load to check if the user is offline
-  if (!navigator.onLine) {
-    goOffline();
+const firstScreen = `// App.js
+class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Welcome',
+  };
+  render() {
+    return <Text>Welcome Home!</Text>;
   }
+}`;
 
-  //Offline Event
-  window.addEventListener("offline", function () {
-    goOffline();
-  });
+const secondScreen = `// App.js
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-  //Online Event
-  window.addEventListener("online", function () {
-    headerElement.style.background = '';
-    menuElement.style.background = '';
-  });
+// ...
 
-  //To change the header colors
-  function goOffline() {
-    var greyColor = '#9E9E9E';
-    headerElement.style.background = greyColor;
-    menuElement.style.background = greyColor;
-  }
+const Routes = StackNavigator({
+  Home: { screen: HomeScreen },
 });
 `;
+
+
+const thirdScreen = `// App.js
+// ...
+
+const Routes = StackNavigator({
+  Home: { screen: HomeScreen },
+});
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <Routes />
+    );
+  }
+}
+`;
+
+const fourthScreen = `// App.js
+// ...
+class ArticlesScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Articles',
+  };
+  render() {
+    return (
+      <View>
+        <Text>Articles</Text>
+      </View>
+    );
+  }
+}
+
+const Routes = StackNavigator({
+  Home: { screen: HomeScreen },
+  Articles: { screen: ArticlesScreen },
+});
+
+`;
+
+const fifthScreen = `// App.js
+import React from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import { StackNavigator } from 'react-navigation';
+// ..
+class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Welcome',
+  };
+  render() {
+    const { navigate } = this.props.navigation;
+    return (
+      <View>
+        <Text>Welcome Home!</Text>
+        <Button
+          onPress={() => navigate('Articles', { articles: [1, 2, 3] })}
+          title="Articles"
+        />
+      </View>
+    );
+  }
+}`;
+
     return(
-      <div className="offline">
+      <div className="general">
         <h1>5. Routing</h1>
+        <p>Let{`'`}s use React Navigation to create basic routing & navigation for our app.</p>
+        <h2>Setup & Installation</h2>
 
-        <p>Service worker allow us to use cache API to cache the resources and thus by providing offline experience. By caching the app shell, application loads faster on the repeated visits.</p>
+        <p>Install the latest version of react-navigation from npm</p>
+        <Highlight lang='bash' value={installRN} />
+        <p>Verify that you have successfully installed `react-navigation` by peeking inside your package.json</p>
+        <p>More details about <a href="https://github.com/react-community/react-navigation">react-navigation</a>.</p>
 
-        <Note>
-          <p><span>Note:</span> Resources cached via cache API can be view in <span className="highlight bold no--bg"> Chrome Dev Tools > Application > Cache Storage</span>.</p>
-        </Note>
+        <h2>Stack Navigator</h2>
+        <p>
+For our app, we want to use the `StackNavigator` because we want a conceptual 'stack' navigation, where each new screen is put on the top of the stack and going back removes a screen from the top of the stack.
+        </p>
 
-        <b>Refer the below image:</b>
 
-        <div className="offline__container">
-          <img className="" alt="cached resources" />
-        </div>
+<ul className="setup__steps">
+  <li>
+    <p>Let{`'`}s start with one screen.  Inside App.js create a new `HomeScreen component`</p>
+    <Highlight lang='javascript' value={firstScreen} />
+  </li>
+  <li>
+    <p>Now we will Import `StackNavigator` from `react-navigation` and create our routing configuration called `Routes`.</p>
+    <Highlight lang='javascript' value={secondScreen} />
+  </li>
+  <li>
+    <p>Once we have our `Routes` config, we can now render our first route!  Replace the contents of our default `App` component with our `Routes` config (component).</p>
+    <Highlight lang='javascript' value={thirdScreen} />
+  </li>
+</ul>
+<Note type="facts"><p><span>Note: </span> The `title` of the screen is configurable on the static `navigationOptions`, where many options can be set to configure the presentation of the screen in the navigator.  See docs.
+</p></Note>
 
-        <p>More details about <a href="https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage">Cache API</a>.</p>
 
-        <h2>Offline/Online Events</h2>
-        <p>By using <span className="highlight bold no--bg">offline/online events</span>, we can let the user know when he is offline or call an API when he has connectivity again.</p>
+<h2>Adding Routes</h2>
+<p>Now that we have our first route working, let us add another screen and a button to navigate to it.</p>
+<ul className="setup__steps">
+<li>
+  <p>Inside App.js create a new `ArticlesScreen component` and register it with our `StackNavigator`</p>
+  <Highlight lang='javascript' value={fourthScreen} />
+</li>
+<li>
+  <p>Finally, add a button to navigate to our new screen.  Make sure you import `Button` from `react-native`.  Our button in `HomeScreen` component links to `ArticlesScreen` using the `routeName` `Articles`.</p>
+  <Highlight lang='javascript' value={fifthScreen} />
+</li>
+<li>Sweet, we are done.  Try navigating on your phone!</li>
+</ul>
 
-        <Highlight lang='javascript' value={offlineEvent} />
+<h2>Reference Links</h2>
+<ul>
+  <li><a href="https://github.com/react-community/react-navigation">react-navigation</a></li>
+</ul>
 
-        <b>Screenshot when user is offline:</b>
-
-        <div className="offline__container">
-          <img className="" alt="app offline" />
-        </div>
-
-        <Note type="tips">
-          <p><span>Tips:</span> Emulate offline in Devtools by opening <span className="highlight bold no--bg">Chrome Dev Tools > Network > Offline</span>.</p>
-        </Note>
 
       </div>
     );
