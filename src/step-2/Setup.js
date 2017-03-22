@@ -1,32 +1,38 @@
 import React, {Component} from 'react';
-import Note from '../Note';
+import Highlight from 'react-syntax-highlight';
 
-class Introduction extends Component {
+class Setup extends Component {
   render() {
+    const gitClone = '$ git clone -b sample https://github.com/';
+    const installDependencies = '$ npm install';
+    const runProject = '$ npm run server';
     return(
-      <div className="general">
-        <h1>1. Introduction</h1>
-        <p>In this workshop, you will be learning about React Native, how it works, and how to build your first React Native App.</p>
-        <h2>What is React Native?</h2>
-        <p>[placeholder]</p>
-        <h2>Things you need</h2>
-        <ul className="check-list">
-          <li><b>Laptop</b> - Mac OS or Windows.</li>
-          <li><b>Mobile Device</b> - IOS or Android.</li>
+      <div className="setup">
+        <h1>2. Setup</h1>
+        <p>To setup the project, follow the below steps.</p>
+        <h2>Steps</h2>
+        <ul className="setup__steps">
+          <li>Clone the repository via command line.</li>
+
+          <Highlight lang="bash" value={gitClone} />
+
+          <li>If you dont have node installed in your system. Download and install it from below.</li>
+
+          <a className="btn" href="https://nodejs.org/en/download/" target="_blank">Download Node</a>
+
+          <li>Install the dependencies to run localhost server.</li>
+
+          <Highlight lang="bash" value={installDependencies} />
+
+          <li>Run the project sample.</li>
+
+          <Highlight lang="bash" value={runProject} />
         </ul>
 
-        <h2>[placeholder]</h2>
-        <ul>
-          <li>[placeholder]</li>
-          <li>[placeholder]</li>
-        </ul>
-
-        <Note type="facts">
-          <p><span>Facts: </span> [placeholder]</p>
-        </Note>
+        <p>Thats it. Setup is done.</p>
       </div>
     );
   }
 }
 
-export default Introduction;
+export default Setup;

@@ -1,32 +1,42 @@
 import React, {Component} from 'react';
+import Highlight from 'react-syntax-highlight';
 import Note from '../Note';
 
-class Introduction extends Component {
+class Styles extends Component {
   render() {
+    const surgeInstall = `$ npm install --global surge`;
+    const finalDir = `$ cd final`;
+    const surgeDeploy = `$ surge`;
+    const surgeDeployHTTPS = `$ surge --domain https://my-project.surge.sh`;
     return(
-      <div className="general">
-        <h1>1. Introduction</h1>
-        <p>In this workshop, you will be learning about React Native, how it works, and how to build your first React Native App.</p>
-        <h2>What is React Native?</h2>
-        <p>[placeholder]</p>
-        <h2>Things you need</h2>
-        <ul className="check-list">
-          <li><b>Laptop</b> - Mac OS or Windows.</li>
-          <li><b>Mobile Device</b> - IOS or Android.</li>
-        </ul>
+      <div>
+        <h1>7. Styles</h1>
+        <p>The final step of this workshop is deploying our github cards with HTTPS server.</p>
+        <h2>Follow the below steps.</h2>
+        <p><span className="highlight bold no--bg">Step 1</span> - Install surge via npm.</p>
+        <Highlight lang="bash" value={surgeInstall} />
 
-        <h2>[placeholder]</h2>
-        <ul>
-          <li>[placeholder]</li>
-          <li>[placeholder]</li>
-        </ul>
+        <p><span className="highlight bold no--bg">Step 2</span> - Go to <span className="highlight bold no--bg">final directory</span> in sample repository.</p>
+        <Highlight lang="bash" value={finalDir} />
 
-        <Note type="facts">
-          <p><span>Facts: </span> [placeholder]</p>
+        <p><span className="highlight bold no--bg">Step 3</span> - Type the below command to deploy.</p>
+        <Highlight lang="bash" value={surgeDeploy} />
+
+        <p>After successful deployment, you will get an url in your terminal. Copy it and open in your desktop and mobile browsers :D</p>
+
+        <h2>What next?</h2>
+        <p>Everything is perfect, except the deployed site is loading in HTTP unless we change the url to HTTPS. So lets fix it by forcing HTTP to redirect to HTTPS.</p>
+
+        <Highlight lang="bash" value={surgeDeployHTTPS} />
+
+        <Note type="tips">
+          <p><span>Tips: </span> <a href="https://chrome.google.com/webstore/detail/blipmdconlkpinefehnmjammfjpmpbjk" target="_blank">Lighthouse</a> analyzes web apps and web pages, collecting modern performance metrics and insights on developer best practices. Our application score was <span className="highlight bold no--bg">91/100</span>.</p>
         </Note>
+
+        <p>Thats it all done!!</p>
       </div>
     );
   }
 }
 
-export default Introduction;
+export default Styles;

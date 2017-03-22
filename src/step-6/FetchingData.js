@@ -1,32 +1,59 @@
 import React, {Component} from 'react';
+import Highlight from 'react-syntax-highlight';
 import Note from '../Note';
 
-class Introduction extends Component {
+
+class FetchingData extends Component {
   render() {
+    const manifestJson = `{
+  "name": "Application Name",
+  "short_name": "App Name",
+  "icons": [{
+    "src": "./images/touch/android-chrome-144x144.png",
+    "sizes": "144x144",
+    "type": "image/png"
+  }],
+  "start_url": "./index.html?utm=homescreen",
+  "theme_color": "#2196f3",
+  "background_color": "#fff",
+  "display": "standalone",
+  "orientation": "portrait"
+}`;
+
     return(
       <div className="general">
-        <h1>1. Introduction</h1>
-        <p>In this workshop, you will be learning about React Native, how it works, and how to build your first React Native App.</p>
-        <h2>What is React Native?</h2>
-        <p>[placeholder]</p>
-        <h2>Things you need</h2>
-        <ul className="check-list">
-          <li><b>Laptop</b> - Mac OS or Windows.</li>
-          <li><b>Mobile Device</b> - IOS or Android.</li>
-        </ul>
+        <h1>6. Fetching Data</h1>
+        <p>Using <span className="highlight bold no--bg">web manifest</span>, gives you extra control over the add to homescreen, splash screen experience. Add to homescreen gives us the ability to install the web application quickly without having to worry about the size of the application.</p>
 
-        <h2>[placeholder]</h2>
+        <p>Manifest.json should contain the following criteria.</p>
+
         <ul>
-          <li>[placeholder]</li>
-          <li>[placeholder]</li>
+          <li>Site should be in <span className="highlight bold no--bg">HTTPS</span>.</li>
+          <li>Should have a <span className="highlight bold no--bg">registered service worker</span>.</li>
+          <li>Should contain a <span className="highlight bold no--bg">name</span>, <span className="highlight bold no--bg">short_name</span> to display in banner and homescreen.</li>
+          <li>Icon should be <span className="highlight bold no--bg">PNG</span> image and at least <span className="highlight bold no--bg">144px</span> in dimension.</li>
+          <li><span className="highlight bold no--bg">Add to homescreen</span> banner will show when user should visits your site at least twice with some time intervals in between.</li>
         </ul>
 
-        <Note type="facts">
-          <p><span>Facts: </span> [placeholder]</p>
+        <Note>
+          <p><span>Note: </span>Above listed criertias will change over the time, for more info <a href="https://developers.google.com/web/updates/2015/03/increasing-engagement-with-app-install-banners-in-chrome-for-android#criteria-faq">Google Developers Site</a>.</p>
         </Note>
+
+        <b>Sample Manifest</b>
+
+        <Highlight lang="json" value={manifestJson} />
+
+        <p>More about manifest in <a href="https://w3c.github.io/manifest/">W3C Specification</a>.</p>
+
+        <h2>Cross Browser</h2>
+        <p>Add to homescreen, splash screen are supported in <span className="highlight bold no--bg">Chrome</span>, <span className="highlight bold no--bg">Mozilla Firefox</span>, <span className="highlight bold no--bg">Opera</span> and <span className="highlight bold no--bg">Safari</span> as well.</p>
+
+        <div className="offline__container">
+          <img className=""  alt="Manifest File" />
+        </div>
       </div>
     );
   }
 }
 
-export default Introduction;
+export default FetchingData;
