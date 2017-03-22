@@ -21,7 +21,7 @@ Creact React Native App runs Expo under the hood.
           <p><a href="https://github.com/react-community/create-react-native-app#faqs">See Create React Native App FAQS</a></p>
 
           <h2>Let{`'`}s get started!</h2>
-  <Note type="tips"><p><span>Tip: </span> .</p></Note>
+  <Note type="tips"><p><span>Tip: </span> Pair up with someone next to you.</p></Note>
           <h2>Helpful Links</h2>
           <ul>
             <li><a href="https://facebook.github.io/react-native/releases/next/docs/getting-started.html">React Native Component Docs</a></li>
