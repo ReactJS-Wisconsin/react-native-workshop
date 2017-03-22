@@ -16,7 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build && sw-precache --root='build/' --static-file-globs='build/**/!(*map*)' --verbose",
     "test": "react-scripts test --env=jsdom",
-    "stage": "npm run build && surge build -d react-native-workshop.surge.sh"
+    "deploy": "npm run build && surge build -d react-native-workshop.surge.sh",
+    "teardown": "surge teardown react-native-workshop.surge.sh"
   },
   "homepage": "./"
 }
