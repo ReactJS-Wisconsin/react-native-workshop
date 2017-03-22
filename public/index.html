@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-title" content="Gufsky">
+    <meta name="application-name" content="Gufsky">
+    <meta name="theme-color" content="#1976d2">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <title>Gufsky - React Native Workshop</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register('./service-worker.js', { scope: "./" })
+        .then(function (registration) {
+          console.info('Service worker is registered!');
+        })
+        .catch(function (error) {
+          console.error('Service worker failed ', error);
+        });
+      }
+    </script>
+  </body>
+</html>
