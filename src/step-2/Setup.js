@@ -40,9 +40,9 @@ class Setup extends Component {
 
         </ul>
 
-<Note type="facts"><p><span>Note: </span> Your phone and laptop need to be on the same network.</p></Note>
+<Note type="tips"><p><span>Note: </span> Your phone and laptop need to be on the same network.</p></Note>
 
-
+<Note type="facts"><p><span>Warning: </span> If the QR code does not work (Windows), you are going to have to partner up or create a project with the Expo Xde desktop app - <a href="https://github.com/exponent/xde">https://github.com/exponent/xde</a></p></Note>
 
         <h2>Reference Links</h2>
         <ul>
