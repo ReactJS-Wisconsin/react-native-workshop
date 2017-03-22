@@ -4,42 +4,66 @@ import Note from '../Note';
 
 class Styles extends Component {
   render() {
-    const surgeInstall = `
-    const styles = StyleSheet.create({
-  container: {
+const stylesone = `const listStyles = StyleSheet.create({
+  text: {
+    marginLeft: 12,
+    fontSize: 16,
+    padding: 20
+  },
+  separator: {
     flex: 1,
-    marginTop: 20,
+    height: StyleSheet.hairlineWidth,
+    backgroundColor: '#8E8E8E',
   },
 });`;
-    const finalDir = `$ cd final`;
-    const surgeDeploy = `$ surge`;
-    const surgeDeployHTTPS = `$ surge --domain https://my-project.surge.sh`;
+const stylestwo = `
+  render() {
+    const { hasFetched, dataSource } = this.state;
+    return (
+      <View>
+        {hasFetched ?
+          <ListView
+
+              dataSource={dataSource}
+              renderRow={(rowData) => <Text style={listStyles.text}>{rowData.title}</Text>} // heyo!
+              renderSeparator={(sectionId, rowId) => <View key={rowId} style={listStyles.separator} />} // heyo!
+            />
+            : <Loader />
+        }
+      </View>
+    );
+  }
+`;
     return(
       <div>
         <h1>7. Styles</h1>
-        <p>The final step of this workshop is deploying our github cards with HTTPS server.</p>
-        <h2>Follow the below steps.</h2>
-        <p><span className="highlight bold no--bg">Step 1</span> - Install surge via npm.</p>
-        <Highlight lang="bash" value={surgeInstall} />
 
-        <p><span className="highlight bold no--bg">Step 2</span> - Go to <span className="highlight bold no--bg">final directory</span> in sample repository.</p>
-        <Highlight lang="bash" value={finalDir} />
-
-        <p><span className="highlight bold no--bg">Step 3</span> - Type the below command to deploy.</p>
-        <Highlight lang="bash" value={surgeDeploy} />
-
-        <p>After successful deployment, you will get an url in your terminal. Copy it and open in your desktop and mobile browsers :D</p>
-
-        <h2>What next?</h2>
-        <p>Everything is perfect, except the deployed site is loading in HTTP unless we change the url to HTTPS. So lets fix it by forcing HTTP to redirect to HTTPS.</p>
-
-        <Highlight lang="bash" value={surgeDeployHTTPS} />
-
-        <Note type="tips">
-          <p><span>Tips: </span> <a href="https://chrome.google.com/webstore/detail/blipmdconlkpinefehnmjammfjpmpbjk" target="_blank">Lighthouse</a> analyzes web apps and web pages, collecting modern performance metrics and insights on developer best practices. Our application score was <span className="highlight bold no--bg">91/100</span>.</p>
-        </Note>
-
+<p>Now that we have some data, we can make our list look better with styles.</p>
+<h2>Applying styles</h2>
+<ul className="setup__steps">
+<li>
+<p>Add a new StyleSheet to App.js</p>
+<Highlight lang="javascript" value={stylesone} />
+</li>
+<li>
+<p>Style your ListView with the new `StyleSheet`</p>
+<Highlight lang="javascript" value={stylestwo} />
+</li>
+<li>
+<p>If you feel up to it, tinker with the styles and see what happens.</p>
+</li>
+</ul>
         <p>Thats it all done!!</p>
+
+        <h2>Useful links</h2>
+        <ul >
+        <li>
+        <a href="https://github.com/vhpoet/react-native-styling-cheat-sheet">Cheet Sheet</a>
+        </li>
+        <li>
+        <a href="https://facebook.github.io/react-native/docs/style.html">Style Docs</a>
+        </li>
+        </ul>
       </div>
     );
   }
