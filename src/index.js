@@ -21,7 +21,7 @@ import './syntax.css';
 function scrollToTop() {
   document.body.scrollTop = document.documentElement.scrollTop = 0;
 }
-
+console.log('starting up app');
 ReactDOM.render(
   <Router history={appHistory} onUpdate={scrollToTop}>
     <Route path="/" component={App}>
