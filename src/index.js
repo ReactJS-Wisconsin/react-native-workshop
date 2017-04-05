@@ -18,6 +18,8 @@ import './index.css';
 import './App.css';
 import './syntax.css';
 
+console.log('Starting up app');
+
 function scrollToTop() {
   document.body.scrollTop = document.documentElement.scrollTop = 0;
 }
