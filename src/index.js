@@ -4,6 +4,7 @@ import { Router, Route, hashHistory, IndexRoute, IndexRedirect, useRouterHistory
 import { createHashHistory } from 'history'
 const appHistory = useRouterHistory(createHashHistory)({ queryKey: false })
 import App from './App';
+// workshop 1
 import Prerequisites from './step-0/Prerequisites';
 import Introduction from './step-1/Introduction';
 import Setup from './step-2/Setup';
@@ -13,6 +14,15 @@ import Routing from './step-5/Routing';
 import FetchingData from './step-6/FetchingData';
 import Styles from './step-7/Styles';
 import Homework from './step-8/Homework';
+// workshop 2
+import Recap from './step-9/Recap';
+import Architecture from './step-10/Architecture';
+import BackToFundamentals from './step-11/BackToFundamentals';
+import ComponentDesign from './step-12/ComponentDesign';
+import AirbnbMapView from './step-13/AirbnbMapView';
+import OnYourOwn from './step-14/OnYourOwn';
+import UpNext from './step-15/UpNext';
+
 import PageNotFound from './PageNotFound';
 import './index.css';
 import './App.css';
@@ -29,6 +39,7 @@ ReactDOM.render(
     <Route path="/" component={App}>
       <IndexRoute component={Introduction} />
       <IndexRedirect to="/introduction" />
+      // workshop 1
       <Route path="/prerequisites" component={Prerequisites} />
       <Route path="/introduction" component={Introduction} />
       <Route path="/setup" component={Setup} />
@@ -38,6 +49,15 @@ ReactDOM.render(
       <Route path="/fetching-data" component={FetchingData} />
       <Route path="/styles" component={Styles} />
       <Route path="/homework" component={Homework} />
+      // workshop 2
+      <Route path="/recap" component={Recap} />
+      <Route path="/architecture" component={Architecture} />
+      <Route path="/back-to-fundamentals" component={BackToFundamentals} />
+      <Route path="/component-design" component={ComponentDesign} />
+      <Route path="/airbnb-map-view" component={AirbnbMapView} />
+      <Route path="/on-your-own" component={OnYourOwn} />
+      <Route path="/up-next" component={UpNext} />
+
       <Route path="*" component={PageNotFound} />
     </Route>
   </Router>,
