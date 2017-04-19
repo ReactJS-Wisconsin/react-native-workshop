@@ -21,7 +21,6 @@ import BackToFundamentals from './step-11/BackToFundamentals';
 import ComponentDesign from './step-12/ComponentDesign';
 import AirbnbMapView from './step-13/AirbnbMapView';
 import OnYourOwn from './step-14/OnYourOwn';
-import UpNext from './step-15/UpNext';
 
 import PageNotFound from './PageNotFound';
 import './index.css';
@@ -56,7 +55,6 @@ ReactDOM.render(
       <Route path="/component-design" component={ComponentDesign} />
       <Route path="/airbnb-map-view" component={AirbnbMapView} />
       <Route path="/on-your-own" component={OnYourOwn} />
-      <Route path="/up-next" component={UpNext} />
 
       <Route path="*" component={PageNotFound} />
     </Route>

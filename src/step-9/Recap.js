@@ -7,13 +7,25 @@ class Recap extends Component {
     return(
       <div>
         <h1>9. Recap</h1>
-        <p>Congrats you are done.  If you have gotten this far because you are super fast, try implementing a <a href="https://facebook.github.io/react-native/docs/mapview.html">Map component!</a>   </p>
-        <h2>Home Work</h2>
-        <ul>
-          <li>Follow the complete get starting guide by Facebook - <a href="https://facebook.github.io/react-native/docs/getting-started.html">Guide</a></li>
-          <li>Bring questions for the next session.</li>
-          <li>Be sure to vote on the App to build next time.</li>
+        <p>Congrats on workshop 1.  If you have gotten this far that is great.  If not, that is okay too.  Now is the time to get started, tidy up everything from workshop 1, ask questions, and make sure everything is working.</p>
+        <p>In order to advance, it is important to grasp (atleast slightly) and complete workshop 1; Do not worry if you are behind everyone here is learning and we can help!</p>
+        <h2>Do this now!</h2>
+        <ul className="setup__steps">
+          <li>Ask questions to presenter and to your team (other people at your table).</li>
+          <li>If you are still needing to setup and config your dev environment go to <a href='#/setup'>step 2</a></li>
+          <li>Let{`'`}s get started, spending ~ 15 mins or so on #1, #2 before diving into the next sections.</li>
         </ul>
+
+        <h2>Helpful links</h2>
+        <ul>
+          <li><a href="https://facebook.github.io/react-native/releases/next/docs/getting-started.html">React Native Component Docs</a></li>
+          <li><a href="https://facebook.github.io/react/docs/hello-world.html">React Docs</a></li>
+          <li><a href="https://docs.expo.io/versions/v15.0.0/index.html">Expo Docs</a></li>
+        </ul>
+
+
+        <Note type="facts"><p>Workshop 1 code.  <a href="https://github.com/gufsky/react-native-workshop-1">https://github.com/gufsky/react-native-workshop-1</a>.
+        </p></Note>
       </div>
     );
   }

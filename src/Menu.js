@@ -162,12 +162,6 @@ class Menu extends Component {
                 On your own
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/state-management">
-                <span className="menu__steps">15</span>
-                Up Next (State Management)
-              </NavLink>
-            </li>
           </ul>
 
 
