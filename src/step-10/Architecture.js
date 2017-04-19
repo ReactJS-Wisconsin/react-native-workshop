@@ -3,6 +3,7 @@ import Highlight from 'react-syntax-highlight';
 import Note from '../Note';
 import theapp from './theapp.png';
 import arch from './arch.png';
+import reduxs from './redux.png';
 class Architecture extends Component {
   render() {
     return(
@@ -38,6 +39,30 @@ class Architecture extends Component {
 <p><img style={{width: '100%'}}src={arch}/></p>
 <p><a target='_blank' href={arch}>See full size image >>></a></p>
 
+
+
+<h2>Redux</h2>
+<p><img style={{width: '100%'}}src={reduxs}/></p>
+<p><a target='_blank' href={reduxs}>See full size image >>></a></p>
+
+
+<h2>Exercise: Design, Architect</h2>
+<p>As a team answer the following questions:</p>
+<ul className="setup__steps">
+
+  <li>
+  Where are we going to get our data?
+  </li>
+  <li>
+  What will our data look like?  What format?
+  </li>
+  <li>
+  How will we get our data?  What tools, libraries, etc. will we need to leverage?
+  </li>
+  <li>
+What are some major considerations we need to keep in mind while building our app?
+  </li>
+  </ul>
       </div>
     );
   }
