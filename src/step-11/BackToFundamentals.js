@@ -8,6 +8,38 @@ class BackToFundamentals extends Component {
       <div>
         <h1>11. Back to fundamentals</h1>
         <p>Before we advance, let{`'`}s spend some time understanding how react works.</p>
+
+
+
+<h2>Components, render, props</h2>
+<p>Components have one requirement; they must implement render, a function that tells the component what to... render.nnProps are half of what make React components special. </p>
+<p>When a component is rendered, it can access its "props" using this.props. </p>
+
+<Highlight lang='javascript' value={`
+  render: function() {
+    return (
+      <div>{this.props.message}</div>
+    );
+  }
+  `} />
+
+
+
+  <h2>Exercise: Props</h2>
+  <p>Create a VacancySign component that has a boolean prop hasvacancy. The component should render a div with either the text "Vacancy" or "No Vacancy" depending on the prop.
+</p>
+        <p><iframe src="http://jsbin.com/jigokumoji/1/embed?js,output" style={{width: '100%', height: '300px'}}></iframe></p>
+
+<a href="http://jsbin.com/ceyicizowu/1/embed?js,output" target='_blank'>View Solution >>></a>
+<Note type="facts"><p><span>Note:  </span>
+Why do we need the parentheses around the return statement (line 3)? This is because of JavaScript's automatic semicolon insertion. Without the parentheses, JavaScript would ignore the following lines and return without a value. If the JSX starts on the same line as the return, then parentheses are not needed.
+
+</p></Note>
+
+
+<h2>State</h2>
+
+
         <p>So far, we have used React as a static rendering engine (outputing hardcoded data). Now, we are going to add state to make React components more dynamic.</p>
 
 <p>The key difference between props and state is that state is internal and controlled by the component itself while props are external and controlled by whatever renders the component. Let{`'`}s see it in practice.
@@ -52,7 +84,7 @@ class BackToFundamentals extends Component {
 <p>Edit this board picker so the button actually works. Right now, the first board is always selected (var isSelected = ii === 0).</p>
 
         <p><iframe src="http://jsbin.com/woweqalucu/1/embed?js,output" style={{width: '100%', height: '600px'}}></iframe></p>
-<a href="http://jsbin.com/namukikixu/1/embed?js,output">View Solution >>></a>
+<a href="http://jsbin.com/namukikixu/1/embed?js,output" target='_blank'>View Solution >>></a>
       </div>
     );
   }

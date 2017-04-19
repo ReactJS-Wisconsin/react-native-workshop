@@ -7,13 +7,16 @@ class ComponentDesign extends Component {
     return(
       <div>
         <h1>12. Component Design</h1>
-        <p>Congrats you are done.  If you have gotten this far because you are super fast, try implementing a <a href="https://facebook.github.io/react-native/docs/mapview.html">Map component!</a>   </p>
-        <h2>Home Work</h2>
-        <ul>
-          <li>Follow the complete get starting guide by Facebook - <a href="https://facebook.github.io/react-native/docs/getting-started.html">Guide</a></li>
-          <li>Bring questions for the next session.</li>
-          <li>Be sure to vote on the App to build next time.</li>
+        <p>Components are the heart and soul of React.  In order to build our app, we must first have an idea of what components we want to create.</p>
+        <p>The following exercise is hands on.</p>
+        <ul className="setup__steps">
+
+          <li>On provided paper (individually), figure out how you would break the page into components.  Outline each section that could be a component, and create a list of  your components for each screen.
+          </li>
+          <li>Consider: What would you name these components? what components would have interactions? how would you organize your components?</li>
         </ul>
+
+        <a href='/component-design-worksheet.pdf' target='_blank'>Component worksheet >>></a>
       </div>
     );
   }
