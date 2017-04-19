@@ -23,6 +23,10 @@ class BackToFundamentals extends Component {
   }
   `} />
 
+  <Note type="facts"><p><span>Note:  </span>
+  Why do we need the parentheses around the return statement? This is because of JavaScript's automatic semicolon insertion. Without the parentheses, JavaScript would ignore the following lines and return without a value. If the JSX starts on the same line as the return, then parentheses are not needed.
+
+  </p></Note>
 
 
   <h2>Exercise: Props</h2>
@@ -31,10 +35,6 @@ class BackToFundamentals extends Component {
         <p><iframe src="http://jsbin.com/jigokumoji/1/embed?js,output" style={{width: '100%', height: '300px'}}></iframe></p>
 
 <a href="http://jsbin.com/ceyicizowu/1/embed?js,output" target='_blank'>View Solution >>></a>
-<Note type="facts"><p><span>Note:  </span>
-Why do we need the parentheses around the return statement (line 3)? This is because of JavaScript's automatic semicolon insertion. Without the parentheses, JavaScript would ignore the following lines and return without a value. If the JSX starts on the same line as the return, then parentheses are not needed.
-
-</p></Note>
 
 
 <h2>State</h2>
