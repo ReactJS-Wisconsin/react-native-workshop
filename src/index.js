@@ -12,7 +12,7 @@ import Components from './step-4/Components';
 import Routing from './step-5/Routing';
 import FetchingData from './step-6/FetchingData';
 import Styles from './step-7/Styles';
-import Finish from './step-8/Finish';
+import Homework from './step-8/Homework';
 import PageNotFound from './PageNotFound';
 import './index.css';
 import './App.css';
@@ -37,7 +37,7 @@ ReactDOM.render(
       <Route path="/routing" component={Routing} />
       <Route path="/fetching-data" component={FetchingData} />
       <Route path="/styles" component={Styles} />
-      <Route path="/finish" component={Finish} />
+      <Route path="/homework" component={Homework} />
       <Route path="*" component={PageNotFound} />
     </Route>
   </Router>,

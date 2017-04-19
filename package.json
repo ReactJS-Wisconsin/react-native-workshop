@@ -2,15 +2,15 @@
   "name": "react-native-workshop",
   "version": "0.0.0",
   "devDependencies": {
-    "react-scripts": "0.6.1",
+    "react-scripts": "0.9.5",
     "sw-precache": "^5.1.0"
   },
   "dependencies": {
-    "highlight.js": "9.7.0",
-    "react": "15.3.2",
-    "react-dom": "15.3.2",
+    "highlight.js": "9.10.0",
+    "react": "15.5.4",
+    "react-dom": "15.5.4",
     "react-router": "2.8.1",
-    "react-syntax-highlight": "0.0.2"
+    "react-syntax-highlight": "0.0.6"
   },
   "scripts": {
     "start": "react-scripts start",

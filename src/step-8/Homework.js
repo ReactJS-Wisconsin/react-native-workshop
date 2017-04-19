@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Highlight from 'react-syntax-highlight';
 import Note from '../Note';
 
-class Finish extends Component {
+class Homework extends Component {
   render() {
     return(
       <div>
@@ -19,4 +19,4 @@ class Finish extends Component {
   }
 }
 
-export default Finish;
+export default Homework;

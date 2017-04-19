@@ -114,12 +114,63 @@ class Menu extends Component {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/finish">
+              <NavLink to="/homework">
                 <span className="menu__steps">8</span>
-                Finish
+                Homework
               </NavLink>
             </li>
           </ul>
+
+
+          <div className="menu__header">
+            <h2>Workshop 2</h2>
+          </div>
+          <ul className="menu__list">
+            <li>
+              <NavLink to="/recap">
+                <span className="menu__steps">9</span>
+                Recap
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/architecture">
+                <span className="menu__steps">10</span>
+                The App, Architecture
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/back-to-fundamentals">
+                <span className="menu__steps">11</span>
+                Back to fundamentals
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/component-design">
+                <span className="menu__steps">12</span>
+                Component Design
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/airbnb-map-view">
+                <span className="menu__steps">13</span>
+                Airbnb Map View
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/on-your-own">
+                <span className="menu__steps">14</span>
+                On your own
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/state-management">
+                <span className="menu__steps">15</span>
+                Up Next (State Management)
+              </NavLink>
+            </li>
+          </ul>
+
+
         </div>
         <div className="menu__overlay" onClick={this.hideMenu}></div>
       </div>
