@@ -7,14 +7,13 @@ class Recap extends Component {
       <div>
         <h1>15. Recap From Workshop 2</h1>
         <p>Congrats on completing workshop 2! So far we have setup our project with Exponent, created the key map component, and added a routing mechanism. In this workshop, we will finish building out the user interface with many new components, 
-          styles, and supporting routes. At the end, we should have a fully functioning app ready to accept data from our APIs in which will get wired up in the final workshop of the series.
+          styles, and supporting routes. At the end, we should have a fully functioning app ready to accept data from our APIs which will get wired up in the final workshop of the series.
         </p>
         
         <h2>Do this now!</h2>
         <ul className="setup__steps">
           <li>Ask questions to presenter and to your team (other people at your table).</li>
           <li>If you are still needing to setup, download a zip of the project we will be starting with <a href='https://github.com/MatthewBenjamin/react-native-barfinder' target='_blank'>here</a>.</li>
-          <li></li>
         </ul>
 
         <h2>Helpful links</h2>

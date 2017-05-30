@@ -288,7 +288,7 @@ class SearchUiView extends Component {
             Awesome, at this point we should have a nice background for our app and a cool icon row with title text. Next, we will add in the search input and supporting routes for the other views.
             <Note type="facts">
               <p><span>Pro Tip: </span>
-               As you build out your app, you will start to notice yourself duplicating styles in each of your components' StyleSheet objects. To help with this, create a shared style sheets for colors, text formatting, and anything else resuable. Then just import them in your components.
+               As you build out your app, you will start to notice yourself duplicating styles in each of your components' StyleSheet objects. To help with this, create shared style sheets for colors, text formatting, and anything else resuable. Then just import them in your components.
               </p>
             </Note>
           </li>
