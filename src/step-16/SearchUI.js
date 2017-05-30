@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import Highlight from 'react-syntax-highlight'
 import Note from '../Note'
 
+import searchShot from './search-screenshot.png'
+import iconRowShot from './icon-row-shot.png'
+import searchInputShot from './search-field-shot.png'
+
 const imports = `import {
   StyleSheet,
   Text,
@@ -130,104 +134,221 @@ const textInput = `render() {
   }
 `
 
-const ButtonCode = `<TouchableOpacity
-    onPress={() => {
-      return navigate('MapScreen', { searchString: this.state.searchString })
-    }}
-    style={{flex: 1, alignItems: 'center', padding: 5}}
-  >
-    <Image source={require('./Images/Search.png')} style={{ height: 30, width: 30, marginTop: -5}}/>
-  </TouchableOpacity>
+const ButtonCode = `clickHandler() {
+  const { navigate } = this.props.navigation;
+  return navigate('MapScreen', { searchString: this.state.searchString })
+}
+
+render() {
+  return (
+    <View style={styles.container}>
+      <View style={styles.row}>
+        <Image source={require('./assets/images/Beer.png')} style={styles.mainIcon}/>
+        <Image source={require('./assets/images/Wine.png')} style={styles.mainIcon}/>
+        <Image source={require('./assets/images/Martini.png')} style={styles.mainIcon}/>
+      </View>
+
+      <Text style={styles.welcome}>Begin Your Adventure</Text>
+
+      <View style={{flexDirection: 'row'}}>
+        <View style={styles.searchWrap}>
+          <TextInput style={styles.search}
+            underlineColorAndroid='transparent'
+            placeholder="Search for beer, wine, or cocktail"
+            placeholderTextColor="#f7f7f7"
+            onChange={(text) => this.setState({ searchString: text})}
+          />
+        </View>
+
+        <TouchableOpacity
+          onPress={this.clickHandler}
+          style={{flex: 1, alignItems: 'center', padding: 5}}
+        >
+          <Image source={require('./assets/images/Search.png')} style={{ height: 30, width: 30, marginTop: -5}}/>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+}`
+
+
+const routeCode = `const Routes = StackNavigator({
+  Home: { screen: HomeScreen },
+  Map: { screen: MapScreen }
+}, {
+  headerMode: 'none'
+});
 `
 
 
-const addMarkerMap = `// App.js
-class Map extends React.Component {
-  constructor(props) { // heyo!
+const searchInputStyles = `mainIcon: {
+  height: 80,
+  width: 80
+},
+searchWrap: {
+  height: 30,
+  flex: 5,
+  backgroundColor: '#986FBF',
+  borderWidth: .5,
+  borderColor: colors.WHITE,
+  borderRadius: 2,
+  marginBottom: STANDARD_VERT_SPACING,
+  padding: 5,
+  paddingLeft: 10
+},
+search: {
+  flex: 1, // needed for IOS text to center vertically
+  fontSize: 14,
+  color: colors.WHITE
+},
+welcome: {
+  color: colors.WHITE,
+  fontSize: 20,
+  textAlign: 'center',
+  margin: 10,
+  marginBottom: STANDARD_VERT_SPACING
+},
+instructions: {
+  textAlign: 'center',
+  color: colors.WHITE,
+  marginBottom: 5
+}`
+
+const finished = `
+import Expo from 'expo';
+import React, { Component } from 'react'
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  Image,
+  TouchableOpacity
+} from 'react-native'
+import { StackNavigator } from 'react-navigation'
+import ArticlesScreen from './components/Articles'
+import MapScreen from './components/Map'
+
+import * as colors from './styles/colors'
+import * as fonts from './styles/fonts'
+
+class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Welcome'
+  };
+
+  constructor(props){
     super(props)
+
+    this.clickHandler = this.clickHandler.bind(this)
+
     this.state = {
-      markers: [] // heyo! we will put markers into this Array
+      searchString: ''
     }
   }
+
+  clickHandler() {
+    const { navigate } = this.props.navigation;
+    return navigate('MapScreen', { searchString: this.state.searchString })
+  }
+
   render() {
     return (
-      <View style ={styles.container}>
-        <MapView
-          style={styles.container}
-          initialRegion={{
-              latitude: 45.5209087,
-              longitude: -122.6705107,
-              latitudeDelta: 0.0922,
-              longitudeDelta: 0.0421,
-            }}
+      <View style={styles.container}>
+        <View style={styles.row}>
+          <Image source={require('./assets/images/Beer.png')} style={styles.mainIcon}/>
+          <Image source={require('./assets/images/Wine.png')} style={styles.mainIcon}/>
+          <Image source={require('./assets/images/Martini.png')} style={styles.mainIcon}/>
+        </View>
+
+        <Text style={styles.welcome}>Begin Your Adventure</Text>
+
+        <View style={{flexDirection: 'row'}}>
+          <View style={styles.searchWrap}>
+            <TextInput style={styles.search}
+              underlineColorAndroid='transparent'
+              placeholder="Search for beer, wine, or cocktail"
+              placeholderTextColor="#f7f7f7"
+              onChange={(text) => this.setState({ searchString: text})}
+            />
+          </View>
+
+          <TouchableOpacity
+            onPress={this.clickHandler}
+            style={{flex: 1, alignItems: 'center', padding: 5}}
           >
-          // heyo!
-          {this.state && this.state.markers.length > 0 ? this.state.markers.map((marker, i) => {
-            return (
-              <Marker {...marker} key={i}>
-                <View style={styles.marker}>
-                  <Text style={styles.text}>{marker.label}</Text>
-                </View>
-              </Marker>
-            )
-          }) : null}
-          // end heyo!
-        </MapView>
-    </View>
-    )
+            <Image source={require('./assets/images/Search.png')} style={{ height: 30, width: 30, marginTop: -5}}/>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
   }
 }
-`
 
+const STANDARD_VERT_SPACING = 25;
 
-const addMakrerHandler = `// App.js
-class Map extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      markers: []
-    }
-    this.handlePress = this.handlePress.bind(this)
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.PRIMARY_PURPLE,
+    padding: 20
+  },
+  row: {
+    flexDirection: 'row',
+    marginBottom: 15
+  },
+  mainIcon: {
+    height: 80,
+    width: 80
+  },
+  searchWrap: {
+    height: 30,
+    flex: 5,
+    backgroundColor: '#986FBF',
+    borderWidth: .5,
+    borderColor: colors.WHITE,
+    borderRadius: 2,
+    marginBottom: STANDARD_VERT_SPACING,
+    padding: 5,
+    paddingLeft: 10
+  },
+  search: {
+    flex: 1, // needed for IOS text to center vertically
+    fontSize: 14,
+    color: colors.WHITE
+  },
+  welcome: {
+    color: colors.WHITE,
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+    marginBottom: STANDARD_VERT_SPACING
+  },
+  instructions: {
+    textAlign: 'center',
+    color: colors.WHITE,
+    marginBottom: 5
   }
-  handlePress(e) { // heyo!
-    this.setState({
-      markers: [
-        ...this.state.markers,
-        {
-          coordinate: e.nativeEvent.coordinate,
-          label: 'beer'
-        }
-      ]
-    })
-  }
+})
+
+const Routes = StackNavigator({
+  Home: { screen: HomeScreen },
+  Map: { screen: MapScreen }
+}, {
+  headerMode: 'none'
+});
+
+export default class App extends React.Component {
   render() {
     return (
-      <View style ={styles.container}>
-        <MapView
-          style={styles.container}
-          initialRegion={{
-              latitude: 45.5209087,
-              longitude: -122.6705107,
-              latitudeDelta: 0.0922,
-              longitudeDelta: 0.0421,
-            }}
-            onPress={this.handlePress} // heyo!
-          >
-          {this.state && this.state.markers.length > 0 ? this.state.markers.map((marker, i) => {
-            return (
-              <Marker {...marker} key={i}>
-                <View style={styles.marker}>
-                  <Text style={styles.text}>{marker.label}</Text>
-                </View>
-              </Marker>
-            )
-          }) : null}
-        </MapView>
-    </View>
-    )
+      <Routes />
+    );
   }
 }
+
+Expo.registerRootComponent(App);
 `
 
 
@@ -239,7 +360,12 @@ class SearchUiView extends Component {
     return (
       <div className="general">
         <h1>16. Search UI</h1>
-        <p>In the next few steps we will be cleaning up some code from the last workshop, adding the components we need for our search screen, and adding the interactions and supporting routes for the map screen, and detail screen. Let's get started!</p>
+        <p>In the next few steps we will be cleaning up some code from the last workshop, adding the components we need for our search screen, and adding the interactions and supporting routes for the map screen, and detail screen.</p>
+
+        <h2>The Screen</h2>
+        <p>This is what we are building! Let's get started!</p>
+
+        <img src={searchShot} style={{height: '30rem'}} />
 
         <h2>Components</h2>
 
@@ -255,6 +381,7 @@ class SearchUiView extends Component {
         </ul>
 
         <h2>Icon Row</h2>
+        <img src={iconRowShot} style={{height: '10rem'}} />
         <p>Now that we have a barebones component to work with, let's add in the a View, three Image components, and the supporting Text Component.</p>
         <ul className="setup__steps">
           <li>
@@ -274,7 +401,7 @@ class SearchUiView extends Component {
           <li>
             Awesome, at this point we should have a nice background for our app and a cool icon row with title text. Next, we will add in the search input and supporting routes for the other views.
             <Note type="facts">
-              <p><span>Pro Tip: </span>
+              <p><span>Tip: </span>
                As you build out your app, you will start to notice yourself duplicating styles in each of your components' StyleSheet objects. To help with this, create shared style sheets for colors, text formatting, and anything else resuable. Then just import them in your components.
               </p>
             </Note>
@@ -282,6 +409,7 @@ class SearchUiView extends Component {
         </ul>
 
         <h2>Search Input &amp; Additional Routes</h2>
+        <img src={searchInputShot} style={{height: '5rem'}} />
         <p>Now that we have a our base home screen created let's add in the search input, handlers, and additional routes.</p>
         <ul className="setup__steps">
           <li>
@@ -304,21 +432,20 @@ class SearchUiView extends Component {
             <Highlight lang='javascript' value={ButtonCode} />
             <Note><p><span>Note:</span> If you need a button that contains only text, try the Button component.</p></Note>
           </li>
+          
+          <li>
+            <p>Now we can add in the supporting style for our input and button.</p>
+            <Highlight lang='javascript' value={searchInputStyles} />
+          </li>
 
           <li>
             <p>Finally, add the new Route for the MapScreen to the StackNavigator.</p>
-            <Highlight lang='javascript' value={addMarkerMap} />
-            <Note><p><span>What is happening:</span>  We use the JavaScript Array method `.map` on our this.state.markers Array, we pass it a function that takes in the argument of marker. We will then return the `Marker` component that was earlier imported, and spread our marker data onto the marker component.  This creates a list of nested marker components within our MapView.</p>
-            </Note>
+            <Highlight lang='javascript' value={routeCode} />
           </li>
 
-          <li>
-            <p>Now we can populate our this.state.markers Array and see markers render on the map.  To do this, we will add a handler to our MapView to capture and add a marker to our state when a user taps on the map. </p>
-            <p>We first need to add our event handler `handlePress`, have it call this.setState to populate our Array.  Then we need pass the handler to our MapView component.</p>
-            <Highlight lang='javascript' value={addMakrerHandler} />
-          </li>
-
-          <li>Bam!  You can now go nuts and tap on your map and see markers appear.</li>
+          <li>That's it! We now have an awesome search screen for our bar finder app. Next, we will build out the map screen and detail screen. 
+            The finished component should is below in case you need it.</li>
+           <Highlight lang='javascript' value={finished} />
         </ul>
 
         <h2>Reference Links</h2>
