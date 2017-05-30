@@ -164,6 +164,24 @@ class Menu extends Component {
             </li>
           </ul>
 
+          <div className="menu__header">
+            <h2>Workshop 3</h2>
+          </div>
+          <ul className="menu__list">
+            <li>
+              <NavLink to="/recap-two">
+                <span className="menu__steps">15</span>
+                Recap
+              </NavLink>
+            </li>
+             <li>
+              <NavLink to="/search-ui">
+                <span className="menu__steps">16</span>
+                Search UI
+              </NavLink>
+            </li>
+          </ul>
+
 
         </div>
         <div className="menu__overlay" onClick={this.hideMenu}></div>
