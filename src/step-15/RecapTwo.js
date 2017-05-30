@@ -5,14 +5,16 @@ class Recap extends Component {
   render() {
     return(
       <div>
-        <h1>9. Recap</h1>
-        <p>Congrats on workshop 1.  If you have gotten this far that is great.  If not, that is okay too.  Now is the time to get started, tidy up everything from workshop 1, ask questions, and make sure everything is working.</p>
-        <p>In order to advance, it is important to grasp (atleast slightly) and complete workshop 1; Do not worry if you are behind everyone here is learning and we can help!</p>
+        <h1>15. Recap From Workshop 2</h1>
+        <p>Congrats on completing workshop 2! So far we have setup our project with Exponent, created the key map component, and added a routing mechanism. In this workshop, we will finish building out the user interface with many new components, 
+          styles, and supporting routes. At the end, we should have a fully functioning app ready to accept data from our APIs in which will get wired up in the final workshop of the series.
+        </p>
+        
         <h2>Do this now!</h2>
         <ul className="setup__steps">
           <li>Ask questions to presenter and to your team (other people at your table).</li>
-          <li>If you are still needing to setup and config your dev environment go to <a href='#/setup'>step 2</a></li>
-          <li>Let{`'`}s get started, spending ~ 15 mins or so on #1, #2 before diving into the next sections.</li>
+          <li>If you are still needing to setup, download a zip of the project we will be starting with <a href='https://github.com/MatthewBenjamin/react-native-barfinder' target='_blank'>here</a>.</li>
+          <li></li>
         </ul>
 
         <h2>Helpful links</h2>
@@ -22,8 +24,7 @@ class Recap extends Component {
           <li><a href="https://docs.expo.io/versions/v15.0.0/index.html">Expo Docs</a></li>
         </ul>
 
-
-        <Note type="facts"><p>Workshop 1 code.  <a href="https://github.com/gufsky/react-native-workshop-1">https://github.com/gufsky/react-native-workshop-1</a>.
+        <Note type="facts"><p>Starting code for workshop 3.  <a href="https://github.com/MatthewBenjamin/react-native-barfinder" target='_blank'>https://github.com/MatthewBenjamin/react-native-barfinder</a>.
         </p></Note>
       </div>
     );

@@ -177,7 +177,7 @@ class Menu extends Component {
              <li>
               <NavLink to="/search-ui">
                 <span className="menu__steps">16</span>
-                Recap
+                Search UI
               </NavLink>
             </li>
           </ul>
