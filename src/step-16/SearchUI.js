@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Highlight from 'react-syntax-highlight';
-import Note from '../Note';
+import React, { Component } from 'react'
+import Highlight from 'react-syntax-highlight'
+import Note from '../Note'
 
 const imports = `import {
   StyleSheet,
@@ -9,30 +9,30 @@ const imports = `import {
   View,
   Image,
   TouchableOpacity
-} from 'react-native'`;
+} from 'react-native'`
 
 const baseComponent = `class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Welcome'
-  };
+  }
 
   constructor(props){
     super(props)
   }
 
   render() {
-    const { navigate } = this.props.navigation;
+    const { navigate } = this.props.navigation
     return (
       <View style={styles.container}>
        {/* Awesome Code Goes Here */}
       </View>
-    );
+    )
   }
 }
-`;
+`
 
 const IconRow = `render() {
-    const { navigate } = this.props.navigation;
+    const { navigate } = this.props.navigation
     return (
       <View style={styles.container}>
         <View style={styles.row}> 
@@ -43,11 +43,11 @@ const IconRow = `render() {
           <Text style={styles.welcome}>Begin Your Adventure</Text>
         </View>
       </View>
-    );
+    )
   }
-`;
+`
 
-const IconRowStyles = `const STANDARD_VERT_SPACING = 25;
+const IconRowStyles = `const STANDARD_VERT_SPACING = 25
 
 const styles = StyleSheet.create({
   container: {
@@ -72,11 +72,11 @@ const styles = StyleSheet.create({
     margin: 10,
     marginBottom: STANDARD_VERT_SPACING
   }
-});
-`;
+})
+`
 
 const importMarker = `// App.js
-import MapView, { Marker } from 'react-native-maps';`;
+import MapView, { Marker } from 'react-native-maps'`
 
 const markerStyle = `// App.js
 const styles = StyleSheet.create({
@@ -92,16 +92,16 @@ const styles = StyleSheet.create({
     color: "#FFF",
     fontWeight: "bold"
   }
-});
+})
 // ...
-`;
+`
 
 
 
 const addState = `// App.js
 class Map extends React.Component {
   constructor(props) { // heyo!
-    super(props);
+    super(props)
     this.state = {
       markers: [] // we will put markers into this Array
     }
@@ -120,16 +120,16 @@ class Map extends React.Component {
           >
         </MapView>
     </View>
-    );
+    )
   }
 }
-`;
+`
 
 
 const addMarkerMap = `// App.js
 class Map extends React.Component {
   constructor(props) { // heyo!
-    super(props);
+    super(props)
     this.state = {
       markers: [] // heyo! we will put markers into this Array
     }
@@ -159,21 +159,21 @@ class Map extends React.Component {
           // end heyo!
         </MapView>
     </View>
-    );
+    )
   }
 }
-`;
+`
 
 
 const addMakrerHandler = `// App.js
 class Map extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       markers: []
     }
-    this.handlePress = this.handlePress.bind(this);
+    this.handlePress = this.handlePress.bind(this)
   }
   handlePress(e) { // heyo!
     this.setState({
@@ -210,10 +210,10 @@ class Map extends React.Component {
           }) : null}
         </MapView>
     </View>
-    );
+    )
   }
 }
-`;
+`
 
 
 
@@ -239,11 +239,11 @@ class SearchUiView extends Component {
           </li>
         </ul>
 
-        <h2>IconRow</h2>
+        <h2>Icon Row</h2>
         <p>Now that we have a barebones component to work with, let's add in the a View, three Image components, and the supporting Text Component.</p>
         <ul className="setup__steps">
           <li>
-            <p>Create a new Component called `Maps` that we can put our `MapView` into.</p>
+            <p>Add a container style to our root view, a view for the icon row, and three image components for our icons.</p>
             <Highlight lang='javascript' value={IconRow} />
           </li>
           <li>
@@ -266,8 +266,7 @@ class SearchUiView extends Component {
           </li>
         </ul>
 
-
-        <h2>Markers</h2>
+        <h2>Search Input &amp; Additional Routes</h2>
         <p>Now that we have our map, we can make it more interesting by adding the ability to add markers.</p>
         <ul className="setup__steps">
           <li>
@@ -286,8 +285,6 @@ class SearchUiView extends Component {
             <Note><p><span>Note:</span>  Learn more about React `state` in the official React Docs - <a href="https://facebook.github.io/react-native/docs/state.html">https://facebook.github.io/react-native/docs/state.html</a></p></Note>
           </li>
 
-
-
           <li>
             <p>Next, nested inside our `MapView` we can `iterate` over a set of markers with `this.state.markers` (we will populate it next step).</p>
             <Highlight lang='javascript' value={addMarkerMap} />
@@ -301,21 +298,17 @@ class SearchUiView extends Component {
             <Highlight lang='javascript' value={addMakrerHandler} />
           </li>
 
-
           <li>Bam!  You can now go nuts and tap on your map and see markers appear.</li>
         </ul>
-
-
 
         <h2>Reference Links</h2>
         <ul>
           <li><a href="https://github.com/airbnb/react-native-maps">react-native-maps</a></li>
         </ul>
 
-
       </div>
-    );
+    )
   }
 }
 
-export default SearchUiView;
+export default SearchUiView
