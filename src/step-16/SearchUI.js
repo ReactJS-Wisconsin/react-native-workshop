@@ -298,7 +298,12 @@ class SearchUiView extends Component {
         <p>Now that we have a our base home screen created let's add in the search input, handlers, and additional routes.</p>
         <ul className="setup__steps">
           <li>
-            <p>First, lets create a row to house our TextInput and Search Button.</p>
+            <p>First, let's add a property to our state to hold the string. We will need this in order to track changes
+               on the input and send our search string to the map view</p>
+            <Highlight lang='javascript' value={searchState} />
+          </li>
+          <li>
+            <p>Now create a row to house our TextInput and Search Button.</p>
             <Highlight lang='javascript' value={searchWrapperCode} />
           </li>
           <li>
