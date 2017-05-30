@@ -75,19 +75,7 @@ const styles = StyleSheet.create({
 })
 `
 
-const searchWrapperCode = `class HomeScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Welcome'
-  };
-
-  constructor(props){
-    super(props)
-    this.state = {
-      searchString: ''
-    }
-  }
-
-  render() {
+const searchWrapperCode = `render() {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
@@ -104,7 +92,6 @@ const searchWrapperCode = `class HomeScreen extends React.Component {
         </View>
       </View>
     );
-  }
 }`
 
 const searchState = `constructor(props){
@@ -312,13 +299,14 @@ class SearchUiView extends Component {
             <Highlight lang='javascript' value={textInput} />
           </li>
           <li>
-            <p>Next, we will add a TouchableOpacity with a search icon for our button.</p>
+            <p>Next, we will add a TouchableOpacity with a search icon for our button. The onPress handler should call the Navigate method to send us to the
+               MapScreen route and pass in the search string from our state.</p>
             <Highlight lang='javascript' value={ButtonCode} />
             <Note><p><span>Note:</span> If you need a button that contains only text, try the Button component.</p></Note>
           </li>
 
           <li>
-            <p>Next, nested inside our `MapView` we can `iterate` over a set of markers with `this.state.markers` (we will populate it next step).</p>
+            <p>Finally, add the new Route for the MapScreen to the StackNavigator.</p>
             <Highlight lang='javascript' value={addMarkerMap} />
             <Note><p><span>What is happening:</span>  We use the JavaScript Array method `.map` on our this.state.markers Array, we pass it a function that takes in the argument of marker. We will then return the `Marker` component that was earlier imported, and spread our marker data onto the marker component.  This creates a list of nested marker components within our MapView.</p>
             </Note>
