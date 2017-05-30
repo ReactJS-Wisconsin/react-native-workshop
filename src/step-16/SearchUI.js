@@ -75,54 +75,82 @@ const styles = StyleSheet.create({
 })
 `
 
-const importMarker = `// App.js
-import MapView, { Marker } from 'react-native-maps'`
+const searchWrapperCode = `class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Welcome'
+  };
 
-const markerStyle = `// App.js
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  marker: {
-    backgroundColor: "#550bbc",
-    padding: 5,
-    borderRadius: 5,
-  },
-  text: {
-    color: "#FFF",
-    fontWeight: "bold"
-  }
-})
-// ...
-`
-
-
-
-const addState = `// App.js
-class Map extends React.Component {
-  constructor(props) { // heyo!
+  constructor(props){
     super(props)
     this.state = {
-      markers: [] // we will put markers into this Array
+      searchString: ''
     }
   }
+
   render() {
+    const { navigate } = this.props.navigation;
     return (
-      <View style ={styles.container}>
-        <MapView
-          style={styles.container}
-          initialRegion={{
-              latitude: 45.5209087,
-              longitude: -122.6705107,
-              latitudeDelta: 0.0922,
-              longitudeDelta: 0.0421,
-            }}
-          >
-        </MapView>
-    </View>
-    )
+      <View style={styles.container}>
+        <View style={styles.row}>
+          <Image source={require('./assets/images/Beer.png')} style={styles.mainIcon}/>
+          <Image source={require('./assets/images/Wine.png')} style={styles.mainIcon}/>
+          <Image source={require('./assets/images/Martini.png')} style={styles.mainIcon}/>
+        </View>
+
+        <Text style={styles.welcome}>Begin Your Adventure</Text>
+          
+        <View style={{flexDirection: 'row'}}>
+          {/* Super duper search coming in hot.  */}
+        </View>
+      </View>
+    );
   }
-}
+}`
+
+const searchState = `constructor(props){
+    super(props)
+    this.state = {
+      searchString: ''
+    }
+  }`
+
+const textInput = `render() {
+    const { navigate } = this.props.navigation;
+    return (
+      <View style={styles.container}>
+        <View style={styles.row}>
+          <Image source={require('./assets/images/Beer.png')} style={styles.mainIcon}/>
+          <Image source={require('./assets/images/Wine.png')} style={styles.mainIcon}/>
+          <Image source={require('./assets/images/Martini.png')} style={styles.mainIcon}/>
+        </View>
+
+        <Text style={styles.welcome}>Begin Your Adventure</Text>
+          
+        <View style={{flexDirection: 'row'}}>
+          <View style={styles.searchWrap}>
+            <TextInput style={styles.search}
+              underlineColorAndroid='transparent'
+              placeholder="Search for beer, wine, or cocktail"
+              placeholderTextColor="#f7f7f7"
+              onChange={(text) => this.setState({ searchString: text})}
+            />
+          </View>
+
+          {/* Button Column Goes Here.  */}
+        </View>
+      </View>
+    );
+  }
+`
+
+const ButtonCode = `<TouchableOpacity
+    onPress={() => {
+      return navigate('MapScreen', { searchString: this.state.searchString })
+    }}
+    style={{flex: 1, alignItems: 'center', padding: 5}}
+  >
+    <Image source={require('./Images/Search.png')} style={{ height: 30, width: 30, marginTop: -5}}/>
+  </TouchableOpacity>
 `
 
 
@@ -247,7 +275,7 @@ class SearchUiView extends Component {
             <Highlight lang='javascript' value={IconRow} />
           </li>
           <li>
-            <p>Finally, add the supporting styles to the stylesheet at the bottom of the page. We will apply background color and base styling to our wrapper, flex direction to the icon row, sizing for the icons, and some text formatting for the title text.</p>
+            <p>Next, add the supporting styles to the stylesheet at the bottom of the page. We will apply background color and base styling to our container, flex direction to the icon row, sizing for the icons, and some text formatting for the title text.</p>
             <Highlight lang='javascript' value={IconRowStyles} />
 
             <Note type="facts">
@@ -267,22 +295,21 @@ class SearchUiView extends Component {
         </ul>
 
         <h2>Search Input &amp; Additional Routes</h2>
-        <p>Now that we have our map, we can make it more interesting by adding the ability to add markers.</p>
+        <p>Now that we have a our base home screen created let's add in the search input, handlers, and additional routes.</p>
         <ul className="setup__steps">
           <li>
-            <p>First, import the Marker component.</p>
-            <Highlight lang='javascript' value={importMarker} />
-            <Note type="facts"><p><span>Note: </span> We are importing the `Marker` component using the named export syntax (hence the curlys).  You can learn more about modules <a href="https://strongloop.com/strongblog/an-introduction-to-javascript-es6-modules/">here.</a>
-            </p></Note>
+            <p>First, lets create a row to house our TextInput and Search Button.</p>
+            <Highlight lang='javascript' value={searchWrapperCode} />
           </li>
           <li>
-            <p>Update our stylesheet with marker and text styles.</p>
-            <Highlight lang='javascript' value={markerStyle} />
+            <p>Our search row will contain two columns. One for the search input and one for the search button. The input requires a wrapper due to an Android quirk that prevents Android from honoring the height property on TextInput components. 
+              More to come on that when we get to styles. Let's add the code now.</p>
+            <Highlight lang='javascript' value={textInput} />
           </li>
           <li>
-            <p>Now we need a way to contain a set of markers.  We can use our component `state`.</p>
-            <Highlight lang='javascript' value={addState} />
-            <Note><p><span>Note:</span>  Learn more about React `state` in the official React Docs - <a href="https://facebook.github.io/react-native/docs/state.html">https://facebook.github.io/react-native/docs/state.html</a></p></Note>
+            <p>Next, we will add a TouchableOpacity with a search icon for our button.</p>
+            <Highlight lang='javascript' value={ButtonCode} />
+            <Note><p><span>Note:</span> If you need a button that contains only text, try the Button component.</p></Note>
           </li>
 
           <li>
