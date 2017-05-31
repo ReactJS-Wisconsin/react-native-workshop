@@ -181,11 +181,7 @@ const routeCode = `const Routes = StackNavigator({
 `
 
 
-const searchInputStyles = `mainIcon: {
-  height: 80,
-  width: 80
-},
-searchWrap: {
+const searchInputStyles = `searchWrap: {
   height: 30,
   flex: 5,
   backgroundColor: '#986FBF',
@@ -200,13 +196,6 @@ search: {
   flex: 1, // needed for IOS text to center vertically
   fontSize: 14,
   color: colors.WHITE
-},
-welcome: {
-  color: colors.WHITE,
-  fontSize: 20,
-  textAlign: 'center',
-  margin: 10,
-  marginBottom: STANDARD_VERT_SPACING
 },
 instructions: {
   textAlign: 'center',
@@ -375,7 +364,7 @@ class SearchUiView extends Component {
             <Highlight lang='javascript' value={imports} />
           </li>
           <li>
-            <p>Next, delete all of the JSX markup within the root view of the HomeScreen component. We will be replacing this with some awesom code in a second. The HomeScreen component should now look like this: </p>
+            <p>Next, delete all of the JSX markup within the root view of the HomeScreen component. We will be replacing this with some awesome code in a second. The HomeScreen component should now look like this: </p>
             <Highlight lang='javascript' value={baseComponent} />
           </li>
         </ul>
