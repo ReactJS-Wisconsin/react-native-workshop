@@ -43,7 +43,7 @@ export default class Map extends Component {
         >
           {this.state && this.state.markers.length > 0 ? this.state.markers.map((marker, i) => {
             return (
-              <Marker {...marker} key={i}>
+              <Marker {...marker} key={i} onPress={() => this.setSelectedVenue(venue)>
                 <View style={styles.marker} />
               </Marker>
             )
