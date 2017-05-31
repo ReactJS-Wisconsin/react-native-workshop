@@ -187,6 +187,12 @@ class Menu extends Component {
              </NavLink>
            </li>
              <li>
+            <NavLink to="/list-item-detail">
+              <span className="menu__steps">18</span>
+              List Item Detail View
+            </NavLink>
+            </li>
+              <li>
               <NavLink to="/on-your-own-two">
                 <span className="menu__steps">19</span>
                 On Your Own

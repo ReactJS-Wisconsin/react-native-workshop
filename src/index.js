@@ -26,6 +26,7 @@ import RecapTwo from './step-15/RecapTwo'
 import SearchUI from './step-16/SearchUI'
 import MapUI from './step-17/MapUI'
 import OnYourOwnTwo from './step-19/OnYourOwn'
+import ListItemDetail from './step-18/ListItemDetail'
 
 import PageNotFound from './PageNotFound'
 import './index.css'
@@ -64,6 +65,7 @@ ReactDOM.render(
       <Route path="/recap-two" component={RecapTwo} />
       <Route path="/search-ui" component={SearchUI} />
       <Route path="/map-ui" component={MapUI} />
+      <Route path="/list-item-detail" component={ListItemDetail} />
       <Route path="/on-your-own-two" component={OnYourOwnTwo} />
 
 
