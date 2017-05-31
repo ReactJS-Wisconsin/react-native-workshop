@@ -151,7 +151,7 @@ class ResultsList extends Component {
     super(props);
 
     // We pass our mock data to this component from the Map component
-    // we then pass this.props.results to the object created from ListView.DataSource
+    // then pass this.props.results to the ds object (created from ListView.DataSource)
     // to determine if a row should be rendered or not
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
@@ -167,8 +167,10 @@ class ResultsList extends Component {
     );
   }
 
-  // ListView takes a renderRow prop, this takes a function to render an individual row
   render () {
+    // ListView each row by taking in two props
+    // 1. dataSource: the data you want to pass to your renderRow function
+    // 2. renderRow: a function that take your data and return JSX to render each row
     return (
       <ListView
         dataSource={this.state.dataSource}
@@ -251,7 +253,8 @@ const mapComponentResultsList = `export default class Map extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      markers: []
+      markers: [],
+      selectedVenue: null
     }
 
     this.setSelectedVenue = this.setSelectedVenue.bind(this)
@@ -356,7 +359,8 @@ class MapUiView extends Component {
             <Highlight lang='javascript' value={resultsListImport} />
           </li>
           <li>
-            <p>Add our setSelectedVenue function, bind it in our constructor, and pass it to both the results list and the map markers</p>
+            <p>Now we'll add our setSelectedVenue function, which will allow the user to select a particular venue in order to view more details about it. We'll also need to add the setSelectedVenue property to the state,
+              bind our new function in our constructor, and pass it to both the results list and the map markers</p>
             <Highlight lang='javascript' value={mapComponentResultsList} />
           </li>
         </ul>
