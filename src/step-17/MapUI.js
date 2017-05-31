@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
 })
 `
 
-const mapViewMockData = `        <MapView
+const mapViewMockData = `<MapView
           style={styles.container}
           initialRegion={{
             latitude: mockdata.origin.latitude,
@@ -78,7 +78,21 @@ const mapViewMockData = `        <MapView
             latitudeDelta: mockdata.origin.latitudeDelta,
             longitudeDelta: mockdata.origin.longitudeDelta
           }}
-        >`
+        >
+          { /*
+            Our mock data is already being passed to each Marker
+            component with {...marker}, which will provide our
+            markers with the geolocation data they need to
+            render correctly on our map
+          */}
+          {this.state && this.state.markers.length > 0 ? this.state.markers.map((marker, i) => {
+            return (
+              <Marker {...marker} key={i}>
+                <View style={styles.marker} />
+              </Marker>
+            )
+          }) : null }
+      </MapView>`
 
 const mapMarkerMockData = `{this.state && this.state.markers.length > 0 ? this.state.markers.map((marker, i) => {
             return (
@@ -268,7 +282,7 @@ const mapComponentResultsList = `export default class Map extends Component {
         >
           {this.state && this.state.markers.length > 0 ? this.state.markers.map((marker, i) => {
             return (
-              <Marker {...marker} key={i}>
+              <Marker {...marker} key={i} onPress={() => this.setSelectedVenue(venue)}>
                 <View style={styles.marker} />
               </Marker>
             )
@@ -312,13 +326,11 @@ class MapUiView extends Component {
             <Highlight lang='javascript' value={baseComponent} />
           </li>
           <li>
-            <p>Modify the MapView to use our mock data. This will focus on the map on a particular location</p>
+            <p>Modify the MapView to use our mock data. This will focus the map on a particular location</p>
             <Highlight lang='javascript' value={mapViewMockData} />
           </li>
           <li>
-            <p>Your Map component should now look like this</p>
-            <Highlight lang='javascript' value={markersFinished} />
-            <p>And the screen should look like this</p>
+            <p>Our map now centers on the correct location and the map markers are automatically added to the map. The Map component should render like this:</p>
             <img src={mockMarkers} alt="map populated from data" style={{height: '30rem'}} />
           </li>
         </ul>
@@ -344,7 +356,7 @@ class MapUiView extends Component {
             <Highlight lang='javascript' value={resultsListImport} />
           </li>
           <li>
-            <p>Render the list underneath the MapView and add our setSelectedVenue function</p>
+            <p>Add our setSelectedVenue function, bind it in our constructor, and pass it to both the results list and the map markers</p>
             <Highlight lang='javascript' value={mapComponentResultsList} />
           </li>
         </ul>
