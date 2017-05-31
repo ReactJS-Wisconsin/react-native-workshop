@@ -1,39 +1,40 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Router, Route, hashHistory, IndexRoute, IndexRedirect, useRouterHistory } from 'react-router';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Router, Route, hashHistory, IndexRoute, IndexRedirect, useRouterHistory } from 'react-router'
 import { createHashHistory } from 'history'
 const appHistory = useRouterHistory(createHashHistory)({ queryKey: false })
-import App from './App';
+import App from './App'
 // workshop 1
-import Prerequisites from './step-0/Prerequisites';
-import Introduction from './step-1/Introduction';
-import Setup from './step-2/Setup';
-import UpAndRunning from './step-3/UpAndRunning';
-import Components from './step-4/Components';
-import Routing from './step-5/Routing';
-import FetchingData from './step-6/FetchingData';
-import Styles from './step-7/Styles';
-import Homework from './step-8/Homework';
+import Prerequisites from './step-0/Prerequisites'
+import Introduction from './step-1/Introduction'
+import Setup from './step-2/Setup'
+import UpAndRunning from './step-3/UpAndRunning'
+import Components from './step-4/Components'
+import Routing from './step-5/Routing'
+import FetchingData from './step-6/FetchingData'
+import Styles from './step-7/Styles'
+import Homework from './step-8/Homework'
 // workshop 2
-import Recap from './step-9/Recap';
-import Architecture from './step-10/Architecture';
-import BackToFundamentals from './step-11/BackToFundamentals';
-import ComponentDesign from './step-12/ComponentDesign';
-import AirbnbMapView from './step-13/AirbnbMapView';
-import OnYourOwn from './step-14/OnYourOwn';
+import Recap from './step-9/Recap'
+import Architecture from './step-10/Architecture'
+import BackToFundamentals from './step-11/BackToFundamentals'
+import ComponentDesign from './step-12/ComponentDesign'
+import AirbnbMapView from './step-13/AirbnbMapView'
+import OnYourOwn from './step-14/OnYourOwn'
 // workshop 3
-import RecapTwo from './step-15/RecapTwo';
-import SearchUI from './step-16/SearchUI';
+import RecapTwo from './step-15/RecapTwo'
+import SearchUI from './step-16/SearchUI'
+import OnYourOwnTwo from './step-19/OnYourOwn'
 
-import PageNotFound from './PageNotFound';
-import './index.css';
-import './App.css';
-import './syntax.css';
+import PageNotFound from './PageNotFound'
+import './index.css'
+import './App.css'
+import './syntax.css'
 
-console.log('Starting up app');
+console.log('Starting up app')
 
 function scrollToTop() {
-  document.body.scrollTop = document.documentElement.scrollTop = 0;
+  document.body.scrollTop = document.documentElement.scrollTop = 0
 }
 
 ReactDOM.render(
@@ -61,10 +62,11 @@ ReactDOM.render(
        // workshop 3
       <Route path="/recap-two" component={RecapTwo} />
       <Route path="/search-ui" component={SearchUI} />
+      <Route path="/on-your-own-two" component={OnYourOwnTwo} />
       
 
       <Route path="*" component={PageNotFound} />
     </Route>
   </Router>,
   document.getElementById('root')
-);
+)
