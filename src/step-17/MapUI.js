@@ -4,6 +4,7 @@ import Note from '../Note'
 
 import mapScreenshot from './map-screenshot.png'
 import mockMarkers from './mock-markers.png'
+import listScreen from './list-screen.png'
 
 const imports = `import mockdata from '../mock/mockdata.json'`
 
@@ -128,12 +129,16 @@ const markersFinished = `export default class Map extends Component {
 
 const resultsList = `import React, { Component } from 'react';
 import { ListView } from 'react-native';
+// The ListItem component doesn't exist yet, we'll make that next
 import ListItem from './ListItem';
 
 class ResultsList extends Component {
   constructor (props) {
     super(props);
 
+    // We pass our mock data to this component from the Map component
+    // we then pass this.props.results to the object created from ListView.DataSource
+    // to determine if a row should be rendered or not
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
       dataSource: ds.cloneWithRows(this.props.results)
@@ -148,6 +153,7 @@ class ResultsList extends Component {
     );
   }
 
+  // ListView takes a renderRow prop, this takes a function to render an individual row
   render () {
     return (
       <ListView
@@ -165,11 +171,14 @@ import { TouchableOpacity, View, Text, StyleSheet, Image } from 'react-native';
 import * as colors from '../styles/colors';
 
 export default ({ rowData, setSelectedVenue }) => {
+  // get the properties we want from our mock data
   const { name, address, trendingNumber, travelTime } = rowData;
   return (
     <TouchableOpacity onPress={() => setSelectedVenue(rowData)}>
       <View style={styles.listItemContainer}>
+        { /* for now we'll just use a static image, we can make this dynamic when we hook up the app to an API in the next workshop */ }
         <Image source={require('./../assets/images/Beer.png')} style={styles.iconImage} />
+        { /* below we're just rendering the mock data */ }
         <View style={styles.mainContent}>
           <Text>{name}</Text>
           <Text style={styles.address}>{address}</Text>
@@ -182,9 +191,9 @@ export default ({ rowData, setSelectedVenue }) => {
       </View>
     </TouchableOpacity>
   );
-};
+};`
 
-const styles = StyleSheet.create({
+const listItemStyles = `const styles = StyleSheet.create({
   listItemContainer: {
     padding: 25,
     borderColor: '#777',
@@ -212,7 +221,7 @@ const styles = StyleSheet.create({
     marginTop: 3
   },
   mainContent: {
-    flex: 1
+    flex: 1 // by setting flex to 1, this column will stretch to fill any extra space
   },
   travel: {
     alignItems: 'flex-end'
@@ -220,8 +229,7 @@ const styles = StyleSheet.create({
   travelText: {
     color: colors.PRIMARY_PURPLE
   }
-});
-`
+});`
 
 const resultsListImport = `import ResultsList from './ResultsList'`
 
@@ -287,16 +295,16 @@ class MapUiView extends Component {
       <h1>17. Map</h1>
       <p>Now it’s time to display our search results. First, we’ll edit our Map component from the last workshop to display the results as map markers. Then, we can add another component to display the results in a list alongside the map.</p>
       <h2>The Screen</h2>
-      <img src={mapScreenshot} style={{height: '30rem'}} />
+      <img src={mapScreenshot} alt="map component final state" style={{height: '30rem'}} />
       <p>This is what we’ll be building. When it’s done we’ll have our mock data wired up with our styled components.</p>
       <h2>Map Markers</h2>
         <ul className="setup__steps">
           <li>
-            <p>Let's add our mock data to the rest of our imports at the top of the 'components/Map.js' file</p>
+            <p>Let's add our mock data to the rest of our imports at the top of the 'Map.js' file</p>
             <Highlight lang='javascript' value={imports} />
           </li>
           <li>
-            <p>Add the mock data to our component level state, in the Map component</p>
+            <p>Add the mock data to our component level state, in the Map component. This will allow us to access the mock data from inside the component so we can populate our map and list with it.</p>
             <Highlight lang='javascript' value={componentMockData} />
           </li>
           <li>
@@ -304,18 +312,19 @@ class MapUiView extends Component {
             <Highlight lang='javascript' value={baseComponent} />
           </li>
           <li>
-            <p>Modify the MapView to use our mock data</p>
+            <p>Modify the MapView to use our mock data. This will focus on the map on a particular location</p>
             <Highlight lang='javascript' value={mapViewMockData} />
           </li>
           <li>
             <p>Your Map component should now look like this</p>
             <Highlight lang='javascript' value={markersFinished} />
             <p>And the screen should look like this</p>
-            <img src={mockMarkers} style={{height: '30rem'}} />
+            <img src={mockMarkers} alt="map populated from data" style={{height: '30rem'}} />
           </li>
         </ul>
       <h2>Results List</h2>
-        <p>Now that our map and markers are working with our mock data, let's build a List component to give our users another way to view their search results</p>
+        <p>Now that our map and markers are working with our mock data, let's build a List component to give our users another way to view their search results. This is what we'll be building:</p>
+        <img src={listScreen} alt="list results view" style={{height: '15rem'}} />
         <ul className="setup__steps">
           <li>
             <p>Create a new file in the components folder, called 'ResultsList.js'</p>
@@ -325,6 +334,10 @@ class MapUiView extends Component {
           <li>
             <p>Create a new file in the component folder for our list items, 'ListItem.js'</p>
             <Highlight lang='javascript' value={listItemComponent} />
+          </li>
+          <li>
+            <p>Now let's add the styles for the List Item. We'll use flexbox to dynamically size the width of each row, this way it will stretch to fill the screen regardless of device size. The rest of the styles set the colors, padding, image sizes, etc.</p>
+            <Highlight lang='javascript' value={listItemStyles} />
           </li>
           <li>
             <p>Import 'ResultsList.js' into 'Map.js'</p>
