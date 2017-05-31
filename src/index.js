@@ -24,6 +24,7 @@ import OnYourOwn from './step-14/OnYourOwn'
 // workshop 3
 import RecapTwo from './step-15/RecapTwo'
 import SearchUI from './step-16/SearchUI'
+import MapUI from './step-17/MapUI'
 import OnYourOwnTwo from './step-19/OnYourOwn'
 
 import PageNotFound from './PageNotFound'
@@ -62,8 +63,9 @@ ReactDOM.render(
        // workshop 3
       <Route path="/recap-two" component={RecapTwo} />
       <Route path="/search-ui" component={SearchUI} />
+      <Route path="/map-ui" component={MapUI} />
       <Route path="/on-your-own-two" component={OnYourOwnTwo} />
-      
+
 
       <Route path="*" component={PageNotFound} />
     </Route>

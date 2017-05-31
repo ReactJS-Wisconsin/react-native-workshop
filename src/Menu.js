@@ -180,6 +180,12 @@ class Menu extends Component {
                 Search UI
               </NavLink>
             </li>
+            <li>
+             <NavLink to="/map-ui">
+               <span className="menu__steps">17</span>
+               Map UI
+             </NavLink>
+           </li>
              <li>
               <NavLink to="/on-your-own-two">
                 <span className="menu__steps">19</span>
