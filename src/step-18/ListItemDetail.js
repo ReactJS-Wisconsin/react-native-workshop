@@ -2,459 +2,163 @@ import React, { Component } from 'react'
 import Highlight from 'react-syntax-highlight'
 import Note from '../Note'
 
-import searchShot from './../step-16/search-screenshot.png'
-import iconRowShot from './../step-16/icon-row-shot.png'
-import searchInputShot from './../step-16/search-field-shot.png'
+import detailShot from './detail-shot.png'
+import fileTree from './file-tree.png'
 
-const imports = `import {
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-  Image,
-  TouchableOpacity
-} from 'react-native'`
+const baseComponent = `import React from 'react'
+import { View, Text, Image, TouchableOpacity, StyleSheet, Button, ScrollView } from 'react-native'
+import venueImage from './../assets/images/venue-image.png'
+import * as colors from '../styles/colors'
 
-const baseComponent = `class HomeScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Welcome'
-  }
+export default ({ venue, closeDetails }) => (
+  <ScrollView style={styles.mainContainer}>
+    <Button
+      title='Close'
+      onPress={closeDetails}
+      color={colors.PRIMARY_PURPLE} />
 
-  constructor(props){
-    super(props)
-  }
-
-  render() {
-    const { navigate } = this.props.navigation
-    return (
-      <View style={styles.container}>
-       {/* Awesome Code Goes Here */}
-      </View>
-    )
-  }
-}
-`
-
-const IconRow = `render() {
-    const { navigate } = this.props.navigation
-    return (
-      <View style={styles.container}>
-        <View style={styles.row}> 
-          <Image source={require('./assets/images/Beer.png')} style={styles.mainIcon}/>
-          <Image source={require('./assets/images/Wine.png')} style={styles.mainIcon}/>
-          <Image source={require('./assets/images/Martini.png')} style={styles.mainIcon}/>
-
-          <Text style={styles.welcome}>Begin Your Adventure</Text>
-        </View>
-      </View>
-    )
-  }
-`
-
-const IconRowStyles = `const STANDARD_VERT_SPACING = 25
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.PRIMARY_PURPLE,
-    padding: 20
-  },
-  row: {
-    flexDirection: 'row',
-    marginBottom: 15
-  },
-  mainIcon: {
-    height: 80,
-    width: 80
-  },
-  welcome: {
-    color: colors.WHITE,
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-    marginBottom: STANDARD_VERT_SPACING
-  }
-})
-`
-
-const searchWrapperCode = `render() {
-    const { navigate } = this.props.navigation;
-    return (
-      <View style={styles.container}>
-        <View style={styles.row}>
-          <Image source={require('./assets/images/Beer.png')} style={styles.mainIcon}/>
-          <Image source={require('./assets/images/Wine.png')} style={styles.mainIcon}/>
-          <Image source={require('./assets/images/Martini.png')} style={styles.mainIcon}/>
+    <View style={styles.headingContainer}>
+      <View style={styles.headingRow}>
+        <View>
+          <Image source={require('./../assets/images/Beer.png')} style={styles.iconImage} />
         </View>
 
-        <Text style={styles.welcome}>Begin Your Adventure</Text>
-          
-        <View style={{flexDirection: 'row'}}>
-          {/* Super duper search coming in hot.  */}
-        </View>
-      </View>
-    );
-}`
-
-const searchState = `constructor(props){
-    super(props)
-    this.state = {
-      searchString: ''
-    }
-  }`
-
-const textInput = `render() {
-    const { navigate } = this.props.navigation;
-    return (
-      <View style={styles.container}>
-        <View style={styles.row}>
-          <Image source={require('./assets/images/Beer.png')} style={styles.mainIcon}/>
-          <Image source={require('./assets/images/Wine.png')} style={styles.mainIcon}/>
-          <Image source={require('./assets/images/Martini.png')} style={styles.mainIcon}/>
+        <View style={styles.headerMain}>
+          <Text>{venue.name}</Text>
+          <Text style={styles.venueAddress}>{venue.address}</Text>
         </View>
 
-        <Text style={styles.welcome}>Begin Your Adventure</Text>
-          
-        <View style={{flexDirection: 'row'}}>
-          <View style={styles.searchWrap}>
-            <TextInput style={styles.search}
-              underlineColorAndroid='transparent'
-              placeholder="Search for beer, wine, or cocktail"
-              placeholderTextColor="#f7f7f7"
-              onChange={(text) => this.setState({ searchString: text})}
-            />
+        <TouchableOpacity>
+          <View style={styles.directionsBtn}>
+            <Text style={styles.directionsText}>Directions</Text>
           </View>
-
-          {/* Button Column Goes Here.  */}
-        </View>
-      </View>
-    );
-  }
-`
-
-const ButtonCode = `clickHandler() {
-  const { navigate } = this.props.navigation;
-  return navigate('MapScreen', { searchString: this.state.searchString })
-}
-
-render() {
-  return (
-    <View style={styles.container}>
-      <View style={styles.row}>
-        <Image source={require('./assets/images/Beer.png')} style={styles.mainIcon}/>
-        <Image source={require('./assets/images/Wine.png')} style={styles.mainIcon}/>
-        <Image source={require('./assets/images/Martini.png')} style={styles.mainIcon}/>
-      </View>
-
-      <Text style={styles.welcome}>Begin Your Adventure</Text>
-
-      <View style={{flexDirection: 'row'}}>
-        <View style={styles.searchWrap}>
-          <TextInput style={styles.search}
-            underlineColorAndroid='transparent'
-            placeholder="Search for beer, wine, or cocktail"
-            placeholderTextColor="#f7f7f7"
-            onChange={(text) => this.setState({ searchString: text})}
-          />
-        </View>
-
-        <TouchableOpacity
-          onPress={this.clickHandler}
-          style={{flex: 1, alignItems: 'center', padding: 5}}
-        >
-          <Image source={require('./assets/images/Search.png')} style={{ height: 30, width: 30, marginTop: -5}}/>
         </TouchableOpacity>
       </View>
-    </View>
-  );
-}`
 
-
-const routeCode = `const Routes = StackNavigator({
-  Home: { screen: HomeScreen },
-  Map: { screen: MapScreen }
-}, {
-  headerMode: 'none'
-});
-`
-
-
-const searchInputStyles = `mainIcon: {
-  height: 80,
-  width: 80
-},
-searchWrap: {
-  height: 30,
-  flex: 5,
-  backgroundColor: '#986FBF',
-  borderWidth: .5,
-  borderColor: colors.WHITE,
-  borderRadius: 2,
-  marginBottom: STANDARD_VERT_SPACING,
-  padding: 5,
-  paddingLeft: 10
-},
-search: {
-  flex: 1, // needed for IOS text to center vertically
-  fontSize: 14,
-  color: colors.WHITE
-},
-welcome: {
-  color: colors.WHITE,
-  fontSize: 20,
-  textAlign: 'center',
-  margin: 10,
-  marginBottom: STANDARD_VERT_SPACING
-},
-instructions: {
-  textAlign: 'center',
-  color: colors.WHITE,
-  marginBottom: 5
-}`
-
-const finished = `
-import Expo from 'expo';
-import React, { Component } from 'react'
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-  Image,
-  TouchableOpacity
-} from 'react-native'
-import { StackNavigator } from 'react-navigation'
-import ArticlesScreen from './components/Articles'
-import MapScreen from './components/Map'
-
-import * as colors from './styles/colors'
-import * as fonts from './styles/fonts'
-
-class HomeScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Welcome'
-  };
-
-  constructor(props){
-    super(props)
-
-    this.clickHandler = this.clickHandler.bind(this)
-
-    this.state = {
-      searchString: ''
-    }
-  }
-
-  clickHandler() {
-    const { navigate } = this.props.navigation;
-    return navigate('MapScreen', { searchString: this.state.searchString })
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.row}>
-          <Image source={require('./assets/images/Beer.png')} style={styles.mainIcon}/>
-          <Image source={require('./assets/images/Wine.png')} style={styles.mainIcon}/>
-          <Image source={require('./assets/images/Martini.png')} style={styles.mainIcon}/>
-        </View>
-
-        <Text style={styles.welcome}>Begin Your Adventure</Text>
-
-        <View style={{flexDirection: 'row'}}>
-          <View style={styles.searchWrap}>
-            <TextInput style={styles.search}
-              underlineColorAndroid='transparent'
-              placeholder="Search for beer, wine, or cocktail"
-              placeholderTextColor="#f7f7f7"
-              onChange={(text) => this.setState({ searchString: text})}
-            />
-          </View>
-
-          <TouchableOpacity
-            onPress={this.clickHandler}
-            style={{flex: 1, alignItems: 'center', padding: 5}}
-          >
-            <Image source={require('./assets/images/Search.png')} style={{ height: 30, width: 30, marginTop: -5}}/>
-          </TouchableOpacity>
-        </View>
+      <View>
+        <Text style={styles.tagLine}>{venue.tagLine}</Text>
       </View>
-    );
-  }
-}
+    </View>
 
-const STANDARD_VERT_SPACING = 25;
+    <Image source={venueImage} />
+  </ScrollView>
+)`
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.PRIMARY_PURPLE,
-    padding: 20
+const baseStyles = `const styles = StyleSheet.create({
+  mainContainer: {
+    backgroundColor: colors.WHITE
   },
-  row: {
+  headingContainer: {
+    paddingTop: 20,
+    paddingBottom: 10,
+    paddingHorizontal: 25
+  },
+  headingRow: {
     flexDirection: 'row',
-    marginBottom: 15
+    marginBottom: 10
   },
-  mainIcon: {
-    height: 80,
-    width: 80
+  headerMain: {
+    flex: 1
   },
-  searchWrap: {
-    height: 30,
-    flex: 5,
-    backgroundColor: '#986FBF',
-    borderWidth: .5,
-    borderColor: colors.WHITE,
-    borderRadius: 2,
-    marginBottom: STANDARD_VERT_SPACING,
-    padding: 5,
-    paddingLeft: 10
+  iconImage: {
+    height: 50,
+    width: 40,
+    marginRight: 15
   },
-  search: {
-    flex: 1, // needed for IOS text to center vertically
-    fontSize: 14,
+  venueAddress: {
+    fontSize: 12,
+    marginBottom: 5,
+    color: '#777'
+  },
+  directionsBtn: {
+    backgroundColor: colors.GREEN,
+    paddingVertical: 6,
+    paddingHorizontal: 15,
+    borderRadius: 15,
+    alignSelf: 'center' // otherwise, 100% width
+  },
+  directionsText: {
     color: colors.WHITE
   },
-  welcome: {
-    color: colors.WHITE,
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-    marginBottom: STANDARD_VERT_SPACING
-  },
-  instructions: {
-    textAlign: 'center',
-    color: colors.WHITE,
-    marginBottom: 5
+  tagLine: {
+    color: '#666',
+    fontSize: 12
   }
 })
-
-const Routes = StackNavigator({
-  Home: { screen: HomeScreen },
-  Map: { screen: MapScreen }
-}, {
-  headerMode: 'none'
-});
-
-export default class App extends React.Component {
-  render() {
-    return (
-      <Routes />
-    );
-  }
+`
+const closeDetails = `// clear out selected venue, return to results list
+closeDetails() {
+  this.setState({
+    selectedVenue: null
+  })
 }
-
-Expo.registerRootComponent(App);
 `
 
+const mainLogic = `{ /* check if there's any markers to display, if so generate list of results */}
+{ this.state.markers.length > 0 && !this.state.selectedVenue &&
+  <View style={styles.container}>
+    <ResultsList
+      setSelectedVenue={this.setSelectedVenue}
+      results={this.state.markers} />
+  </View>
+}
 
+{ /* check details for a specific venue if it has been selected */ }
+{ this.state.selectedVenue &&
+  <View style={styles.container}>
+    <VenueDetails
+      venue={this.state.selectedVenue}
+      closeDetails={this.closeDetails} />
+  </View>
+}
+`
 
+const venueImport = `import VenueDetails from './VenueDetails'`
 
 class ListItemDetail extends Component {
-  render() {
-
+  render () {
     return (
       <div className="general">
-        <h1>16. Search UI</h1>
-        <p>In the next few steps we will be cleaning up some code from the last workshop, adding the components we need for our search screen, and adding the interactions and supporting routes for the map screen, and detail screen.</p>
+        <h1>16. Map Item Detail</h1>
+        <p>Now that we have a map view showing all of the options, let's add the ability to select a map item and show the details for that location.</p>
+        <img src={detailShot} style={{ height: '30rem' }} />
 
-        <h2>The Screen</h2>
-        <p>This is what we are building! Let's get started!</p>
-
-        <img src={searchShot} style={{height: '30rem'}} />
-
-        <h2>Components</h2>
-
+        <h2>The Component</h2>
         <ul className="setup__steps">
           <li>
-            <p>Lets start by importing the necessary components for our search screen in 'main.js'</p>
-            <Highlight lang='javascript' value={imports} />
+            <p>First, add a file called `VenueDetails.js` to your project.</p>
+            <img src={fileTree} style={{ height: '10rem' }} />
           </li>
           <li>
-            <p>Next, delete all of the JSX markup within the root view of the HomeScreen component. We will be replacing this with some awesom code in a second. The HomeScreen component should now look like this: </p>
+            <p>Now, add the component code below. Nothing new here with this component other than taking `venue` and `closeDetails` as arguments. `venue` will be an object of the selected list item.
+               `closeDetails` is the method we need to call to close the detail view and go back to the ListView.</p>
             <Highlight lang='javascript' value={baseComponent} />
           </li>
+          <li>
+            <p>Next, create a StyleSheet and add the supporting styles for our component.</p>
+            <Highlight lang='javascript' value={baseStyles} />
+          </li>
         </ul>
 
-        <h2>Icon Row</h2>
-        <img src={iconRowShot} style={{height: '10rem'}} />
-        <p>Now that we have a barebones component to work with, let's add in the a View, three Image components, and the supporting Text Component.</p>
+        <h2>Iteraction Logic</h2>
+        <p>Now that we have our details component, let's add in the logic to hide and show this view.</p> 
         <ul className="setup__steps">
           <li>
-            <p>Add a container style to our root view, a view for the icon row, and three image components for our icons.</p>
-            <Highlight lang='javascript' value={IconRow} />
+            <p>Start by importing `VenueDetails` in `Map.js`</p>
+            <Highlight lang='javascript' value={venueImport} />
           </li>
           <li>
-            <p>Next, add the supporting styles to the stylesheet at the bottom of the page. We will apply background color and base styling to our container, flex direction to the icon row, sizing for the icons, and some text formatting for the title text.</p>
-            <Highlight lang='javascript' value={IconRowStyles} />
-
-            <Note type="facts">
-              <p><span>Note: </span>
-               React Native uses flexbox for creating layouts. For more information on this see: <a href='https://facebook.github.io/react-native/docs/flexbox.html' target='blank'>Layout with Flexbox</a>
-              </p>
-            </Note>
+            <p>Create a close detail function in our Map component that we can pass to VenueDetails. This will clear our the selected item and show the ResultsList again.</p>
+            <Highlight lang='javascript' value={closeDetails} />
           </li>
           <li>
-            Awesome, at this point we should have a nice background for our app and a cool icon row with title text. Next, we will add in the search input and supporting routes for the other views.
-            <Note type="facts">
-              <p><span>Tip: </span>
-               As you build out your app, you will start to notice yourself duplicating styles in each of your components' StyleSheet objects. To help with this, create shared style sheets for colors, text formatting, and anything else resuable. Then just import them in your components.
-              </p>
-            </Note>
+            <p>Finally, we will add a couple expressions to show either the ResultsList or the VenueDetails based on if we have selected and item or not. Be sure to pass in `venue` and `closeDetails` to our VenueDetails component.</p>
+            <Highlight lang='javascript' value={mainLogic} />
+          </li>
+          <li>
+            <p>And there we have it. We have a fully functioning app ready to receive data from our APIs.</p>
           </li>
         </ul>
-
-        <h2>Search Input &amp; Additional Routes</h2>
-        <img src={searchInputShot} style={{height: '5rem'}} />
-        <p>Now that we have a our base home screen created let's add in the search input, handlers, and additional routes.</p>
-        <ul className="setup__steps">
-          <li>
-            <p>First, let's add a property to our state to hold the string. We will need this in order to track changes
-               on the input and send our search string to the map view</p>
-            <Highlight lang='javascript' value={searchState} />
-          </li>
-          <li>
-            <p>Now create a row to house our TextInput and Search Button.</p>
-            <Highlight lang='javascript' value={searchWrapperCode} />
-          </li>
-          <li>
-            <p>Our search row will contain two columns. One for the search input and one for the search button. The input requires a wrapper due to an Android quirk that prevents Android from honoring the height property on TextInput components. 
-              More to come on that when we get to styles. Let's add the code now.</p>
-            <Highlight lang='javascript' value={textInput} />
-          </li>
-          <li>
-            <p>Next, we will add a TouchableOpacity with a search icon for our button. The onPress handler should call the Navigate method to send us to the
-               MapScreen route and pass in the search string from our state.</p>
-            <Highlight lang='javascript' value={ButtonCode} />
-            <Note><p><span>Note:</span> If you need a button that contains only text, try the Button component.</p></Note>
-          </li>
-          
-          <li>
-            <p>Now we can add in the supporting style for our input and button.</p>
-            <Highlight lang='javascript' value={searchInputStyles} />
-          </li>
-
-          <li>
-            <p>Finally, add the new Route for the MapScreen to the StackNavigator.</p>
-            <Highlight lang='javascript' value={routeCode} />
-          </li>
-
-          <li>That's it! We now have an awesome search screen for our bar finder app. Next, we will build out the map screen and detail screen. 
-            The finished component should is below in case you need it.</li>
-           <Highlight lang='javascript' value={finished} />
-        </ul>
-
-        <h2>Reference Links</h2>
-        <ul>
-          <li><a href="https://facebook.github.io/react-native/docs/textinput.html">TextInput</a></li>
-          <li><a href="https://facebook.github.io/react-native/docs/image.html">Image</a></li>
-          <li><a href="https://facebook.github.io/react-native/docs/touchableopacity.html">TouchableOpacity</a></li>
-        </ul>
-
       </div>
     )
   }
