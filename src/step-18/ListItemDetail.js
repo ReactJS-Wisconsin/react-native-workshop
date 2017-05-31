@@ -115,6 +115,47 @@ const mainLogic = `{ /* check if there's any markers to display, if so generate 
 
 const venueImport = `import VenueDetails from './VenueDetails'`
 
+const backBar = `import React from 'react'
+import { View, Image, TouchableOpacity, StyleSheet } from 'react-native'
+import venueImage from './../assets/images/back-arrow.png'
+import * as colors from '../styles/colors'
+
+export default ({ navigate }) => (
+  <View style={styles.container}>
+    <TouchableOpacity onPress={navigate}>
+      <Image source={venueImage} style={styles.backbtn} />
+    </TouchableOpacity>
+  </View>
+)
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: colors.PRIMARY_PURPLE,
+    flexDirection: 'row',
+    height: 60,
+    paddingTop: 20,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 999
+  },
+  backbtn: {
+    height: 30,
+    width: 30
+  }
+})
+`
+const navactions = `import {NavigationActions} from 'react-navigation'
+import BackBar from './BackBar'
+
+const backAction = NavigationActions.back();`
+const goHome = `goHome() {
+  this.closeDetails()
+  this.props.navigation.dispatch(backAction)
+}`
+const goHomeJsx = `<BackBar navigate={ this.goHome } />`
+
 class ListItemDetail extends Component {
   render () {
     return (
@@ -156,7 +197,35 @@ class ListItemDetail extends Component {
             <Highlight lang='javascript' value={mainLogic} />
           </li>
           <li>
-            <p>And there we have it. We have a fully functioning app ready to receive data from our APIs.</p>
+            <p>And there we have it. You should now be able to select a map item in your bar finder app.</p>
+          </li>
+        </ul>
+
+        <h2>Back Bar</h2>
+        <p>Let's add in a quick back bar component so we can get back to the home screen.</p> 
+        <ul className="setup__steps">
+          <li>
+            <p>Create a file called `BackBar.js`</p>
+          </li>
+          <li>
+            <p>Add in a basic view, TouchableOpacity, and Image for the back arrow icon. We just used the Material Icons `back-arrow` for this.</p>
+            <Highlight lang='javascript' value={backBar} />
+          </li>
+          <li>
+            <p>Back in `Map.js` import our BackBar as well as, NavigationActions from 'react-navigation'. We will need this to dispatch the back action in our navigator.</p>
+            <Highlight lang='javascript' value={navactions} />
+          </li>
+          <li>
+            <p>Next, create a function call goHome. This function should call closeDetails to make sure we clear any selections, then dispatch the back action we created in the previous step.</p>
+            <Highlight lang='javascript' value={goHome} />
+          </li>
+           <li>
+            <p>Finally, add in the necessary JSX to render the BackBar and pass in `this.goHome` as the `navigate` property.</p>
+            <Highlight lang='javascript' value={goHomeJsx} />
+          </li>
+          <li>
+            <p>And there we have it. We have a fully functioning app! It has an awesome map view with details, and a back bar to take us back home. All we need now is some killer data to bring this app alive.
+              Be sure to make it to the next workshop as we will add in our Redux store and wire up our APIs. Congrats on making it this far!</p>
           </li>
         </ul>
       </div>
