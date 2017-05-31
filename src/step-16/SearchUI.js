@@ -450,7 +450,9 @@ class SearchUiView extends Component {
 
         <h2>Reference Links</h2>
         <ul>
-          <li><a href="https://github.com/airbnb/react-native-maps">react-native-maps</a></li>
+          <li><a href="https://facebook.github.io/react-native/docs/textinput.html">TextInput</a></li>
+          <li><a href="https://facebook.github.io/react-native/docs/image.html">Image</a></li>
+          <li><a href="https://facebook.github.io/react-native/docs/touchableopacity.html">TouchableOpacity</a></li>
         </ul>
 
       </div>
