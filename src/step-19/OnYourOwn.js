@@ -14,6 +14,8 @@ class OnYourOwn extends Component {
           <li>Learn about Redux, we will use it to manage all of our state and date within our app - <a href='http://redux.js.org/'>http://redux.js.org/</a></li>
           <li>We will also be using the fetch method to get our data, check out the details here - <a href='https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch' target='_blank'>Using Fetch - MDN</a></li>
         </ul>
+        <h2>Solution</h2>
+        <p>You can find the solution from this workshop here: <a href='https://github.com/MatthewBenjamin/react-native-barfinder' target='_blank'>react-native-barfinder</a></p>
       </div>
     );
   }

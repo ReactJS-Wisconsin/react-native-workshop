@@ -14,12 +14,15 @@ class Recap extends Component {
         <ul className="setup__steps">
           <li>Ask questions to presenter and to your team (other people at your table).</li>
           <li>If you are still needing to setup, download a zip of the project we will be starting with <a href='https://github.com/MatthewBenjamin/react-native-barfinder' target='_blank'>here</a>.</li>
+          <li>If you are attempting to run the project using the Genymotion emulator. Be sure to install play services in order for maps to work. 
+               <a href='https://guides.codepath.com/android/Genymotion-2.0-Emulators-with-Google-Play-support#setup-google-play-services' target='_blank'>Instructions</a>
+          </li>
         </ul>
 
         <h2>Helpful links</h2>
         <ul>
           <li><a href="https://facebook.github.io/react-native/releases/next/docs/getting-started.html">React Native Component Docs</a></li>
-          <li><a href="https://facebook.github.io/react/docs/hello-world.html">React Docs</a></li>
+          <li><a href="https://facebook.github.io/react-native/docs/flexbox.html">Layout with Flexbox</a></li>
           <li><a href="https://docs.expo.io/versions/v15.0.0/index.html">Expo Docs</a></li>
         </ul>
 
