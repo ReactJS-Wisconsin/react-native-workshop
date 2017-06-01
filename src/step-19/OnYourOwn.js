@@ -15,7 +15,7 @@ class OnYourOwn extends Component {
           <li>We will also be using the fetch method to get our data, check out the details here - <a href='https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch' target='_blank'>Using Fetch - MDN</a></li>
         </ul>
         <h2>Solution</h2>
-        <p>You can find the solution from this workshop here: <a href='https://github.com/MatthewBenjamin/react-native-barfinder' target='_blank'>react-native-barfinder</a></p>
+        <p>You can find the solution from this workshop here: <a href='https://github.com/ajzozakiewicz/react-native-workshop-3-solution' target='_blank'>react-native-workshop-3-solution</a></p>
       </div>
     );
   }
