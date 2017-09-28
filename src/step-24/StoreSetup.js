@@ -121,16 +121,29 @@ const initialState = {
     error: null
 };
 
+const formatResults = results => _.map(results, result => ({
+    name: result.name,
+    coordinate: {
+        longitude: result.location.coordinates[0],
+        latitude: result.location.coordinates[1]
+    },
+    description: result.description,
+    rating: result.avgRating,
+    distance: Math.round(result.distance),
+    address: result.address,
+    image: result.image
+}))
+
 export default function search(state = initialState, { type, payload }) {
     switch(type){
         case ActionTypes.SEARCH_START:
             return _.assign({}, state, { isLoading: true });
 
         case ActionTypes.SEARCH_SUCCESS:
-            return _.assign({}, state, { results: payload });
+            return _.assign({}, state, { results: formatResults(payload.bars) });
 
         case ActionTypes.SEARCH_ERRROR:
-            return _.assign({}, state, { results: payload });
+            return _.assign({}, state, { error: payload });
 
         default:
             return state;
@@ -160,27 +173,27 @@ class SearchUiView extends Component {
             <p>Now lets add all the supporting files. I will go over these one by one but for now just copy them over</p>
           </li>
           <li>
-            <p>configure-store.js</p>
+            <p>/store/configure-store.js</p>
             <Highlight lang='javascript' value={ConfigureStore} />
           </li>
           <li>
-            <p>/actions/action-types.js</p>
+            <p>/store/actions/action-types.js</p>
             <Highlight lang='javascript' value={ConfigureStore} />
           </li>
           <li>
-            <p>/actions/actions.js</p>
+            <p>/store/actions/actions.js</p>
             <Highlight lang='javascript' value={Actions} />
           </li>
           <li>
-            <p>/actions/helpers.js</p>
+            <p>/store/actions/helpers.js</p>
             <Highlight lang='javascript' value={Helpers} />
           </li>
           <li>
-            <p>/reducers/index.js</p>
+            <p>/store/reducers/index.js</p>
             <Highlight lang='javascript' value={ReducerIndex} />
           </li>
           <li>
-            <p>/reducers/search.js</p>
+            <p>/store/reducers/search.js</p>
             <Highlight lang='javascript' value={SearchReducer} />
           </li>
 

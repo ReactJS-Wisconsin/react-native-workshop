@@ -34,7 +34,8 @@ import TheAPI from './step-22/TheAPI'
 import ReOrg from './step-23/ReOrganize'
 import StoreSetup from './step-24/StoreSetup'
 import HomeScreen from './step-25/HomeScreen'
-// import ListItemDetail from './step-18/ListItemDetail'
+import MapScreen from './step-26/MapComponent'
+import Congrats from './step-27/Congratulations'
 
 import PageNotFound from './PageNotFound'
 import './index.css'
@@ -83,8 +84,8 @@ ReactDOM.render(
       <Route path="/reorganize" component={ReOrg} />
       <Route path="/store-setup" component={StoreSetup} />
       <Route path="/home-screen" component={HomeScreen} />
-      {/* <Route path="/list-item-detail" component={ListItemDetail} />
-      <Route path="/on-your-own-two" component={OnYourOwnTwo} /> */}
+      <Route path="/map-screen" component={MapScreen} />
+      <Route path="/congrats" component={Congrats} />
 
 
       <Route path="*" component={PageNotFound} />

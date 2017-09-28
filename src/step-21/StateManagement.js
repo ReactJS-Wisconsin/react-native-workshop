@@ -43,6 +43,7 @@ class SearchUiView extends Component {
         <ul>
           <li><a href="https://github.com/mobxjs/mobx">MobX</a></li>
           <li><a href="http://alt.js.org/">Alt</a></li>
+          <li><a href="https://github.com/aksonov/react-native-reactive">Reactive</a></li>
           <li><a href="https://github.com/Yomguithereal/baobab">Baobab</a></li>
         </ul>
 

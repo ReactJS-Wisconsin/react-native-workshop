@@ -205,7 +205,7 @@ class Menu extends Component {
             <li>
               <NavLink to="/recap-three">
                 <span className="menu__steps">20</span>
-                Recaps
+                Recap
               </NavLink>
             </li>
             <li>
@@ -236,6 +236,18 @@ class Menu extends Component {
               <NavLink to="/home-screen">
                 <span className="menu__steps">25</span>
                 Home Screen
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/map-screen">
+                <span className="menu__steps">26</span>
+                Map Screen
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/congrats">
+                <span className="menu__steps">27</span>
+                Congratulations!
               </NavLink>
             </li>
           </ul>

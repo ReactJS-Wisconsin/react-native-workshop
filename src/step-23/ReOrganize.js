@@ -198,7 +198,7 @@ class SearchUiView extends Component {
     return (
       <div className="general">
         <h1>16. Let's Start by Reorganizing!</h1>
-        <p>In the next few steps we will be cleaning up some code from the last workshop, adding the components we need for our search screen, and adding the interactions and supporting routes for the map screen, and detail screen.</p>
+        <p>In the next few steps we will be cleaning up some code from the last workshop, adding the components we need for our search screen, and the interactions and supporting routes for the map screen, and detail screen.</p>
 
         <h2>Project Structure</h2>
         <p>Setup your project with the following files and folders:</p>
