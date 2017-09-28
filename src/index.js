@@ -27,6 +27,15 @@ import SearchUI from './step-16/SearchUI'
 import MapUI from './step-17/MapUI'
 import OnYourOwnTwo from './step-19/OnYourOwn'
 import ListItemDetail from './step-18/ListItemDetail'
+// workshop 4
+import RecapThree from './step-20/RecapThree'
+import StateManagement from './step-21/StateManagement'
+import TheAPI from './step-22/TheAPI'
+import ReOrg from './step-23/ReOrganize'
+import StoreSetup from './step-24/StoreSetup'
+import HomeScreen from './step-25/HomeScreen'
+import MapScreen from './step-26/MapComponent'
+import Congrats from './step-27/Congratulations'
 
 import PageNotFound from './PageNotFound'
 import './index.css'
@@ -67,6 +76,16 @@ ReactDOM.render(
       <Route path="/map-ui" component={MapUI} />
       <Route path="/list-item-detail" component={ListItemDetail} />
       <Route path="/on-your-own-two" component={OnYourOwnTwo} />
+
+      // workshop 4
+      <Route path="/recap-three" component={RecapThree} />
+      <Route path="/state-management" component={StateManagement} />
+      <Route path="/the-api" component={TheAPI} />
+      <Route path="/reorganize" component={ReOrg} />
+      <Route path="/store-setup" component={StoreSetup} />
+      <Route path="/home-screen" component={HomeScreen} />
+      <Route path="/map-screen" component={MapScreen} />
+      <Route path="/congrats" component={Congrats} />
 
 
       <Route path="*" component={PageNotFound} />
