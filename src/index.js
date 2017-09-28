@@ -33,7 +33,7 @@ import StateManagement from './step-21/StateManagement'
 import TheAPI from './step-22/TheAPI'
 import ReOrg from './step-23/ReOrganize'
 import StoreSetup from './step-24/StoreSetup'
-// import OnYourOwnTwo from './step-19/OnYourOwn'
+import HomeScreen from './step-25/HomeScreen'
 // import ListItemDetail from './step-18/ListItemDetail'
 
 import PageNotFound from './PageNotFound'
@@ -82,6 +82,7 @@ ReactDOM.render(
       <Route path="/the-api" component={TheAPI} />
       <Route path="/reorganize" component={ReOrg} />
       <Route path="/store-setup" component={StoreSetup} />
+      <Route path="/home-screen" component={HomeScreen} />
       {/* <Route path="/list-item-detail" component={ListItemDetail} />
       <Route path="/on-your-own-two" component={OnYourOwnTwo} /> */}
 

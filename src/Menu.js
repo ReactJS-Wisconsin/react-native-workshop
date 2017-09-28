@@ -223,13 +223,19 @@ class Menu extends Component {
             <li>
               <NavLink to="/reorganize">
                 <span className="menu__steps">23</span>
-                Project Organization
+                Let's Get Started
               </NavLink>
             </li>
             <li>
               <NavLink to="/store-setup">
                 <span className="menu__steps">24</span>
                 Store Setup
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/home-screen">
+                <span className="menu__steps">25</span>
+                Home Screen
               </NavLink>
             </li>
           </ul>

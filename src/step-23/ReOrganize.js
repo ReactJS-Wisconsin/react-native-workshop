@@ -159,18 +159,51 @@ export default class App extends React.Component {
 AppRegistry.registerComponent('barfinder', () => App)
 `
 
+const packageJSON = `{
+	"name": "barfinder",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"test": "jest",
+		"lint": "standard --fix"
+	},
+	"dependencies": {
+		"lodash": "^4.17.4",
+		"react": "16.0.0-alpha.12",
+		"react-native": "0.48.3",
+		"react-native-configs": "^1.1.0",
+		"react-native-maps": "^0.16.4",
+		"react-navigation": "^1.0.0-beta.11",
+		"react-redux": "^5.0.6",
+		"redux": "^3.7.2",
+		"redux-thunk": "^2.2.0"
+	},
+	"devDependencies": {
+		"babel-jest": "21.0.2",
+		"babel-preset-react-native": "4.0.0",
+		"jest": "21.1.0",
+		"react-test-renderer": "16.0.0-alpha.12",
+		"standard-react-native": "^1.0.1"
+	},
+	"jest": {
+		"preset": "react-native"
+	}
+}
+`
+
 class SearchUiView extends Component {
   render() {
 
     return (
       <div className="general">
-        <h1>16. Let's Reorganize!</h1>
+        <h1>16. Let's Start by Reorganizing!</h1>
         <p>In the next few steps we will be cleaning up some code from the last workshop, adding the components we need for our search screen, and adding the interactions and supporting routes for the map screen, and detail screen.</p>
 
         <h2>Project Structure</h2>
         <p>Setup your project with the following files and folders:</p>
 
-        <p> 2 key folders added </p>
+        <p><b>2 key folders added </b></p>
         <ul>
           <li>/config</li>
           <li>/store</li>
@@ -178,6 +211,9 @@ class SearchUiView extends Component {
         
         <img src={structurePng} style={{height: '60rem'}} />
 
+        <p>Update package.json to include the redux and config dependencies</p>
+        <Highlight lang='json' value={packageJSON} />
+        <p>npm install</p>
 
         <h2>Move HomeScreen to its own component</h2>
         <p>Let's start by making our entry files a bit more readable</p>

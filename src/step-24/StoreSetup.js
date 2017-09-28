@@ -137,7 +137,10 @@ export default function search(state = initialState, { type, payload }) {
     }
 }`
 
-
+const config = `{
+  "barApi":  "https://nm-bar-finder.herokuapp.com/api/v1/bar/search"
+}
+`
 
 class SearchUiView extends Component {
   render() {
@@ -179,6 +182,20 @@ class SearchUiView extends Component {
           <li>
             <p>/reducers/search.js</p>
             <Highlight lang='javascript' value={SearchReducer} />
+          </li>
+
+          <li>
+            <p>
+              The 'react-nativ-configs' module is handy for configuring API endpoints. It uses the __DEV__ global to select the configs. 
+              This is helpful if you want to setup a mock endpoint for local development and a seperate enpoint for release.
+            </p>
+            <p>
+              You can also use it for other configurations that you might want to only run in development. Let's set up the supporting files.
+            </p>
+            <p>/config/debug.json</p>
+            <Highlight lang='javascript' value={config} />
+            <p>/config/release.json</p>
+            <Highlight lang='javascript' value={config} />
           </li>
          
         </ul>
