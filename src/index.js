@@ -27,6 +27,13 @@ import SearchUI from './step-16/SearchUI'
 import MapUI from './step-17/MapUI'
 import OnYourOwnTwo from './step-19/OnYourOwn'
 import ListItemDetail from './step-18/ListItemDetail'
+// workshop 4
+import RecapThree from './step-20/RecapThree'
+import StateManagement from './step-21/StateManagement'
+import ReOrg from './step-22/ReOrganize'
+// import MapUI from './step-17/MapUI'
+// import OnYourOwnTwo from './step-19/OnYourOwn'
+// import ListItemDetail from './step-18/ListItemDetail'
 
 import PageNotFound from './PageNotFound'
 import './index.css'
@@ -67,6 +74,13 @@ ReactDOM.render(
       <Route path="/map-ui" component={MapUI} />
       <Route path="/list-item-detail" component={ListItemDetail} />
       <Route path="/on-your-own-two" component={OnYourOwnTwo} />
+
+      // workshop 4
+      <Route path="/recap-three" component={RecapThree} />
+      <Route path="/state-management" component={StateManagement} />
+      <Route path="/reorganize" component={ReOrg} />
+      {/* <Route path="/list-item-detail" component={ListItemDetail} />
+      <Route path="/on-your-own-two" component={OnYourOwnTwo} /> */}
 
 
       <Route path="*" component={PageNotFound} />

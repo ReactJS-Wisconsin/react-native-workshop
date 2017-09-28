@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import NavLink from './NavLink';
 import './Menu.css';
 
@@ -58,19 +58,19 @@ class Menu extends Component {
     });
   }
   render() {
-    return(
+    return (
       <div className="menu-container">
         <div className="menu">
           <div className="menu__header">
             <h2>Workshop 1</h2>
           </div>
           <ul className="menu__list">
-          <li>
-            <NavLink to="/prerequisites">
-              <span className="menu__steps">0</span>
-              Prerequisites
+            <li>
+              <NavLink to="/prerequisites">
+                <span className="menu__steps">0</span>
+                Prerequisites
             </NavLink>
-          </li>
+            </li>
             <li>
               <NavLink to="/introduction" onlyActiveOnIndex={true}>
                 <span className="menu__steps">1</span>
@@ -174,27 +174,49 @@ class Menu extends Component {
                 Recap
               </NavLink>
             </li>
-             <li>
+            <li>
               <NavLink to="/search-ui">
                 <span className="menu__steps">16</span>
                 Search UI
               </NavLink>
             </li>
             <li>
-             <NavLink to="/map-ui">
-               <span className="menu__steps">17</span>
-               Map UI
+              <NavLink to="/map-ui">
+                <span className="menu__steps">17</span>
+                Map UI
              </NavLink>
-           </li>
-             <li>
-            <NavLink to="/list-item-detail">
-              <span className="menu__steps">18</span>
-              List Item Detail View
+            </li>
+            <li>
+              <NavLink to="/list-item-detail">
+                <span className="menu__steps">18</span>
+                List Item Detail View
             </NavLink>
             </li>
-              <li>
+            <li>
               <NavLink to="/on-your-own-two">
                 <span className="menu__steps">19</span>
+                On Your Own
+              </NavLink>
+            </li>
+
+            <div className="menu__header">
+              <h2>Workshop 4</h2>
+            </div>
+            <li>
+              <NavLink to="/recap-three">
+                <span className="menu__steps">20</span>
+                Recaps
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/state-management">
+                <span className="menu__steps">21</span>
+                State Management
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/reorganize">
+                <span className="menu__steps">22</span>
                 On Your Own
               </NavLink>
             </li>
