@@ -30,8 +30,9 @@ import ListItemDetail from './step-18/ListItemDetail'
 // workshop 4
 import RecapThree from './step-20/RecapThree'
 import StateManagement from './step-21/StateManagement'
-import ReOrg from './step-22/ReOrganize'
-// import MapUI from './step-17/MapUI'
+import TheAPI from './step-22/TheAPI'
+import ReOrg from './step-23/ReOrganize'
+import StoreSetup from './step-24/StoreSetup'
 // import OnYourOwnTwo from './step-19/OnYourOwn'
 // import ListItemDetail from './step-18/ListItemDetail'
 
@@ -78,7 +79,9 @@ ReactDOM.render(
       // workshop 4
       <Route path="/recap-three" component={RecapThree} />
       <Route path="/state-management" component={StateManagement} />
+      <Route path="/the-api" component={TheAPI} />
       <Route path="/reorganize" component={ReOrg} />
+      <Route path="/store-setup" component={StoreSetup} />
       {/* <Route path="/list-item-detail" component={ListItemDetail} />
       <Route path="/on-your-own-two" component={OnYourOwnTwo} /> */}
 

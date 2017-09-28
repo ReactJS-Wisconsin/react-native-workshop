@@ -215,9 +215,21 @@ class Menu extends Component {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/reorganize">
+              <NavLink to="/the-api">
                 <span className="menu__steps">22</span>
-                On Your Own
+                The Bar Finder API
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/reorganize">
+                <span className="menu__steps">23</span>
+                Project Organization
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/store-setup">
+                <span className="menu__steps">24</span>
+                Store Setup
               </NavLink>
             </li>
           </ul>
